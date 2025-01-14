@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Estilos específicos para cada dominio */
+.domain-pilar {
+    /* background: radial-gradient(circle, #FF0025, #45001C); */
+    background: radial-gradient(circle at center,
+            #FF0025 0%,
+            #FF0025 40%,
+            #45001C 70%,
+            #45001C 100%);
+}
+
+.domain-salta {
+    /* background: radial-gradient(circle, #FF0025, #45001C); */
+    background: radial-gradient(circle at center,
+            #FF0025 0%,
+            #FF0025 40%,
+            #45001C 70%,
+            #45001C 100%);
+}
+
+/* zarate se mantiene igual que pilar */
+.domain-zarate {
+    /* background: radial-gradient(circle, #FF0025, #45001C); */
+    background: radial-gradient(circle at center,
+            #FF0025 0%,
+            #FF0025 40%,
+            #45001C 70%,
+            #45001C 100%);
+    /* Colores de ejemplo para ZARATE */
+}
+
+.domain-background0 {
+    background: #FFFFFF;
+}
+
+.domain-background1 {
+    background: #390A01;
+}
+
+.domain-background2 {
+    background: #550623;
+}
+
+.domain-background3 {
+    background: #02352B;
+}
+
+.domain-background4 {
+    background: #031142;
+}
+
+.domain-background5 {
+    background: #20045A;
+}
+
+@font-face {
+    font-family: 'Gotham-Black';
+    src: url('/fonts/Gotham-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham-Book';
+    src: url('/fonts/Gotham-Book.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham-Medium';
+    src: url('/fonts/Gotham-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* fuente itallic */
+@font-face {
+    font-family: 'Gotham-Italic';
+    src: url('/fonts/Gotham-Italic.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* FUENTE APUNTADA PARA EL FOOTER */
+@font-face {
+    font-family: 'BebasNeue-Regular';
+    src: url('/fonts/BebasNeue-Regular.ttf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bison-BoldItallic';
+    src: url('/fonts/Bison-BoldItallic.ttf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* FUENTE PARA SALTA */
+@font-face {
+    font-family: 'OpenSans-BoldItalic';
+    src: url('/fonts/OpenSans-BoldItalic.ttf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Define utility classes */
+.gothamBlack {
+    font-family: 'Gotham-Black', sans-serif;
+}
+
+.gothamBook {
+    font-family: 'Gotham-Book', sans-serif;
+}
+
+.gothamMedium {
+    font-family: 'Gotham-Medium', sans-serif;
+}
+
+.gothamItalic {
+    font-family: 'Gotham-Italic', sans-serif;
+}
+
+.bisonBoldItallic {
+    font-family: 'Bison-BoldItallic', sans-serif;
+}
+
+/* fuente de footer  */
+.bebasNeueRegular {
+    font-family: 'BebasNeue-Regular', sans-serif;
+}
+
+/* FUENTE PARA SALTA */
+.OpenSansBoldItalic {
+    font-family: 'OpenSans-BoldItalic', sans-serif;
+}
+
+/* ESTILOS PARA LOS TEXTOS */
+.texto-inclinado {
+    display: inline-block;
+    transform: skewX(-8deg);
+    /* Inclina el texto en el eje X */
+}
