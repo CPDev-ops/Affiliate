@@ -9,7 +9,7 @@ const dailyData = [
     { date: "02/12", value: 45 },
     { date: "03/12", value: 60 },
     { date: "04/12", value: 35 },
-    { date: "05/12", value: 499 },
+    { date: "05/12", value: 90 },
     { date: "06/12", value: 65 },
     { date: "07/12", value: 55 },
     { date: "08/12", value: 50 },
