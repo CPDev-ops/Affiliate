@@ -7,7 +7,6 @@ import { motion } from 'framer-motion'
 import { ModalLogic } from "../../../logic/Modal";
 import { domain } from "../../../../content/dataDomain";
 import { getColorNav } from "../../../config/getGradient";
-import { path } from "framer-motion/client";
 
 const navbarImage = `/images/navbar-${domain.toLowerCase()}.png`
 const navbarImageInit = `/images/navbar-${domain.toLowerCase()}-dark.png`
