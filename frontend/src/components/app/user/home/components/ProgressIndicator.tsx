@@ -34,7 +34,7 @@ export function ProgressIndicator({ currentStep }: ProgressStepProps) {
         ${step === currentStep
                                     ? 'bg-red-500 border-2 border-green-400 text-white' // Cambiar color si el step es igual a currentStep
                                     : step < currentStep
-                                        ? 'bg-gradient-to-r from-pink-500 to-pink-400 border-2 border-yellow-400 text-white' // Color para pasos anteriores
+                                        ? 'bg-[#FF00FF] border-2 border-yellow-400 text-white' // Color para pasos anteriores
                                         : 'bg-gray-700 text-gray-400 border-2 border-pink-200' // Color para pasos futuros
                                 }`}
                         >

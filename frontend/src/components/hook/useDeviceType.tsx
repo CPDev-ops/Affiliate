@@ -26,7 +26,7 @@ export function getDeviceConfig(isDesktop: boolean, isTablet: boolean, isMobile:
     if (isMobile) {
         return {
             barThickness: 20,
-            fontSize: 12,
+            fontSize: 14,
         }
     }
 }

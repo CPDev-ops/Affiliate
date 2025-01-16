@@ -10,7 +10,7 @@ import imgLevel3 from '/images/goals/level3.png';
 import imgLevel4 from '/images/goals/level4.png';
 import imgLevel5 from '/images/goals/level5.png';
 import { useLevel } from "../../../../context/LevelContext";
-import { FaLongArrowAltLeft } from "react-icons/fa";
+import { IconBackHome } from "../components/Icon";
 
 
 
@@ -73,6 +73,7 @@ export function Goals() {
                 transition={{ duration: 0.5 }}
             >
                 <div className="p-4 sm:max-w-4xl lg:max-w-7xl mx-auto">
+                    <IconBackHome level={level} />
                     <Header level={level} />
                 </div>
                 <div className="max-w-md sm:max-w-4xl lg:max-w-7xl mx-auto  p-4 h-[700px] overflow-y-auto">

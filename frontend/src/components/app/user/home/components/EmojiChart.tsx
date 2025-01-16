@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, PointElement, CategoryScale, LinearScale, Title, Tooltip } from 'chart.js';
 import { getGradient } from '../../../../config/getGradient';
-import { generateWeekLabels, getCurrentMonth } from '../../../../utils/transformData';
+import { generateWeekLabels, getColorByChartText, getColorLineMain, getColorLinesChartBackground, getCurrentMonth } from '../../../../utils/transformData';
 import { getDeviceConfig } from '../../../../hook/useDeviceType';
 // Registrar componentes de Chart.js
 ChartJS.register(LineElement, PointElement, CategoryScale, LinearScale, Title, Tooltip);
@@ -16,6 +16,10 @@ interface ChartProps {
     isDesktop: boolean
 }
 export const EmojiOrIconChart = ({ level, conversionValues, isDesktop, isMobile, isTablet }: ChartProps) => {
+    const colorByLevel = getColorByChartText(level)
+    const colorLines = getColorLinesChartBackground(level)
+    const colorLineMain = getColorLineMain(level)
+
     const chartRef = useRef<ChartJS<'line'> | null>(null);
     //obtener la configuracion segun el dispositivo
     const deviceConfig = getDeviceConfig(isDesktop, isTablet, isMobile)
@@ -46,7 +50,7 @@ export const EmojiOrIconChart = ({ level, conversionValues, isDesktop, isMobile,
         datasets: [
             {
                 data: conversionValues,//aca deberian ir los valores recibidos desde el backend
-                borderColor: 'red',
+                borderColor: colorLineMain,
                 backgroundColor: 'rgba(255, 0, 0, 0.5)',
                 pointStyle: 'circle' as const, // Estilo inicial
                 pointRadius: 10,
@@ -59,17 +63,25 @@ export const EmojiOrIconChart = ({ level, conversionValues, isDesktop, isMobile,
         responsive: true,
         scales: {
             x: {
+                grid: {
+                    color: colorLines,
+                },
                 ticks: {
                     font: {
                         size: deviceConfig?.fontSize//config dinamica
                     },
+                    color: colorByLevel
                 },
             },
             y: {
+                grid: {
+                    color: colorLines,
+                },
                 ticks: {
                     font: {
                         size: deviceConfig?.fontSize//config dinamica
                     },
+                    color: colorByLevel
                 },
             },
         }
@@ -88,11 +100,11 @@ export const EmojiOrIconChart = ({ level, conversionValues, isDesktop, isMobile,
 
     useEffect(() => {
         handleChangeToEmoji()
-    }, [])
+    }, [level])
     return (
 
         <div className={`w-full bg-gradient-to-b ${getGradient(level)} shadow-2xl rounded-xl p-3 `}>{/* style={{ width: '100%', margin: 'auto' }} */}
-            <h3 className={`${level !== 0 ? 'text-rose-100' : 'text-black'}  mb-4 `}>Evolución diaria</h3>
+            <h3 className={`${level !== 0 ? 'text-white' : 'text-black'}  mb-4 `}>Evolución diaria</h3>
             <div className=' rounded-md mx-auto  flex justify-center items-center p-2 max-h-[500px] w-full'>
                 <Line
                     ref={chartRef}

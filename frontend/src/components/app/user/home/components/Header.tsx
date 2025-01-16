@@ -1,11 +1,13 @@
 import { HeaderProps } from "../../../../../types/TypePropsComponents";
+import { getTextByLevel } from "../../../../utils/transformData";
 import { LevelBadge, LevelBadgeImage } from "./LevelBadge";
 
 export function Header({ userName, level }: HeaderProps) {
+    const color = getTextByLevel(level)
     return (
-        <div className="flex items-center tracking-wider justify-between px-2 mb-6">
+        <div className="flex items-center tracking-wider  justify-between px-2 mb-6">
             <div>
-                <h1 className={`text-lg font-bold uppercase  tracking-widest ${level !== 0 ? 'text-white' : 'text-[#CD0101]'}  `}>AFILIATE BINGO OASIS</h1 >
+                <h1 className={`text-lg font-bold uppercase  tracking-widest ${color}`}>AFILIATE BINGO OASIS</h1 >
                 <p className={`${level !== 0 ? 'text-gray-200' : 'text-gray-700'} text-base font-thin  tracking-wider  `}>Hola, {userName}!</p>
             </div>
             <div className="flex-col justify-center items-center ">
@@ -19,4 +21,3 @@ export function Header({ userName, level }: HeaderProps) {
         </div>
     );
 }
-

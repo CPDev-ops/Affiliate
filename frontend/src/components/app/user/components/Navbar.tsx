@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { ModalLogic } from "../../../logic/Modal";
 import { domain } from "../../../../content/dataDomain";
 import { getColorNav } from "../../../config/getGradient";
+import { path } from "framer-motion/client";
 
 const navbarImage = `/images/navbar-${domain.toLowerCase()}.png`
 const navbarImageInit = `/images/navbar-${domain.toLowerCase()}-dark.png`
@@ -19,9 +20,11 @@ export function Navbar({ level }: NavbarProp) {
     //links para el navigate
     const navLinks = [
         { title: "Home", path: "/user/home" },
-      /*   { title: "Canjear Créditos", path: "/user/home" }, */
         { title: "Ver Balance", path: "/user/balance" },
-        { title: "Objetivos", path: "/user/goals" },
+        { title: 'Ver Resumenes', path: '/user/summary' },
+        { title: "Ver Objetivos", path: "/user/goals" },
+        { title: 'Historial', path: '/user/history' },
+        { title: 'Crear Usuarios', path: '/user/createUsers' },
         { title: "Cerrar Sesión", path: "/login" },
     ]
     const navigate = useNavigate()
@@ -73,10 +76,9 @@ export function Navbar({ level }: NavbarProp) {
                                 onClick={closeSideBar}
                             />
                         </div>
-
                         <ul className="p-4 uppercase space-y-4 text-gray-800">
                             {navLinks.map((link, index) => (
-                                <li key={index} onClick={() => navigate(link.path)} className={`${level!==0?'text-white hover:text-red-100':'text-black hover:text-stone-700'} border-b py-1 cursor-pointer `}>{link.title}</li>
+                                <li key={index} onClick={() => navigate(link.path)} className={`${level !== 0 ? 'text-white hover:text-red-100' : 'text-black hover:text-stone-700'} border-b py-1 cursor-pointer `}>{link.title}</li>
                             ))}
                         </ul>
                     </motion.div>

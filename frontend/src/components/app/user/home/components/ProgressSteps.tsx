@@ -12,14 +12,14 @@ export function ProgressSteps({ currentStep = 4, totalSteps = 5, level }: Progre
     const { setLevel } = useLevel()
     return (
         <div className={`bg-gradient-to-b ${getGradient(level)} py-2 sm:py-4 px-3 shadow-2xl sm:h-32 rounded-xl w-full max-w-md sm:max-w-full`}>
-            <h2  className={`${level !== 0 ? 'text-white' : 'text-stone-900'} text-base  mb-4`}>Mi progreso</h2>
+            <h2  className={`${level !== 0 ? 'text-white' : 'text-black'} text-base  mb-4`}>Mi progreso</h2>
             <div className="min-h-12 flex flex-col rounded-b-md  ">
                 <div className="relative mt-auto mb-2">
                     {/* Línea de fondo */}
-                    <div className="absolute h-1 w-full bg-[#F3CDF3] top-1/2 -translate-y-1/2" />
+                    <div className="absolute h-2 w-full bg-[#F3CDF3] top-1/2 -translate-y-1/2" />
                     {/* Línea de progreso */}
                     <div
-                        className="absolute h-1 bg-green-500 top-1/2 -translate-y-1/2 transition-all duration-500"
+                        className="absolute h-2 bg-[#06DE0E] top-1/2 -translate-y-1/2 transition-all duration-500"
                         style={{
                             width: `${((currentStep - 1) / (totalSteps - 1)) * 100}%`
                         }}
@@ -52,10 +52,10 @@ export function ProgressSteps({ currentStep = 4, totalSteps = 5, level }: Progre
                                         <div onClick={() => setLevel(stepNumber)}
                                             className={`w-8 h-8 rounded-full flex items-center justify-center z-10 
                       ${isCurrent
-                                                    ? 'bg-red-500 border-2 border-green-400 text-white'
+                                                    ? 'bg-[#FF0000] border-2 border-[#FBC609] text-white'
                                                     : isCompleted
-                                                        ? 'bg-gradient-to-r from-pink-500 to-pink-400 border-2 border-yellow-400 text-white'
-                                                        : 'bg-gray-700 text-gray-400 border-2 border-pink-200'
+                                                        ? 'bg-[#FF00FF] border-2 border-[#FFFF00] text-white'
+                                                        : 'bg-[#000000] text-gray-400 border-2 border-pink-200'
                                                 }`}
                                         >
                                             <span className="text-sm font-bold">

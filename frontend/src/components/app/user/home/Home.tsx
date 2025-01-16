@@ -2,7 +2,6 @@ import { motion } from "framer-motion"
 import { Navbar } from "../components/Navbar"
 import { Header } from "./components/Header"
 import { CardCreditsEarned } from "./components/CardCreditsEarned"
-import { DailyEvolutionChart } from "./components/DailtEvolutionChart"
 import { ProgressSteps } from "./components/ProgressSteps"
 import { useLevel } from "../../../../context/LevelContext"
 import { useDeviceType } from "../../../hook/useDeviceType"
@@ -33,7 +32,6 @@ export function Home() {
                         </div>
                     </div>
                     {/* CARD DE VALUES IN CHARTJS */}
-                    {/*   <DailyEvolutionChart isDesktop={isDesktop} isMobile={isMobile} isTablet={isTablet} level={level} /> */}
                     <div className="my-4 ">
                         <EmojiOrIconChart isDesktop={isDesktop} isMobile={isMobile} isTablet={isTablet} conversionValues={valuesData} level={level} />
                     </div>

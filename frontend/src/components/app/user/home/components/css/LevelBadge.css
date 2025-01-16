@@ -1,23 +1,25 @@
 .mi-nivel {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-   /*  background: linear-gradient(45deg, #ff4d4d, #cc0000); */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  /*  background: linear-gradient(45deg, #ff4d4d, #cc0000); */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   /*   border: 3px solid #29cc00; */
-    overflow: hidden;
+  overflow: hidden;
+}
+
+@keyframes shine {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  @keyframes shine {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+
+  100% {
+    transform: rotate(360deg);
   }
-  
+}
+
+
