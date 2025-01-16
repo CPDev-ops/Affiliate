@@ -6,10 +6,12 @@ import { DailyEvolutionChart } from "./components/DailtEvolutionChart"
 import { ProgressSteps } from "./components/ProgressSteps"
 import { useLevel } from "../../../../context/LevelContext"
 import { useDeviceType } from "../../../hook/useDeviceType"
+import { EmojiOrIconChart } from "./components/EmojiChart"
 
 export function Home() {
     const { level } = useLevel(); // Acceder al valor de 'level'
     const { isDesktop, isMobile, isTablet } = useDeviceType()
+    const valuesData = [10, 60, 4, 40]
     return (
         <div className="max-w-md sm:max-w-full mx-auto  min-h-screen ">
             <Navbar level={level} />
@@ -31,7 +33,10 @@ export function Home() {
                         </div>
                     </div>
                     {/* CARD DE VALUES IN CHARTJS */}
-                    <DailyEvolutionChart isDesktop={isDesktop} isMobile={isMobile} isTablet={isTablet} level={level} />
+                    {/*   <DailyEvolutionChart isDesktop={isDesktop} isMobile={isMobile} isTablet={isTablet} level={level} /> */}
+                    <div className="my-4 ">
+                        <EmojiOrIconChart isDesktop={isDesktop} isMobile={isMobile} isTablet={isTablet} conversionValues={valuesData} level={level} />
+                    </div>
                 </div>
             </motion.div>
         </div>

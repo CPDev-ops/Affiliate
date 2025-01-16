@@ -4,6 +4,7 @@ import { Header } from "./components/Header"
 import { CardList } from "./components/CardList";
 import { getGradient } from "../../../config/getGradient";
 import { useLevel } from "../../../../context/LevelContext";
+import { IconBackHome } from "../components/Icon";
 
 export function Balance() {
     const { level } = useLevel(); // Acceder al valor de 'level'
@@ -64,6 +65,7 @@ export function Balance() {
             >
                 <div className="p-4 sm:max-w-4xl lg:max-w-7xl  mx-auto">
                     {/* HEADER */}
+                    <IconBackHome level={level} />
                     <Header level={level} visits={302} />
                     {/* CARD LIST CON LA DATA DE LOS QUE VISITARON */}
                     <div className={`max-w-md bg-gradient-to-b ${getGradient(level)} sm:max-w-4xl lg:max-w-7xl   mx-auto shadow-2xl  rounded-xl p-4 `}>

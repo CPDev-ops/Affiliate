@@ -107,7 +107,7 @@ export function DailyEvolutionChart({ level, isDesktop, isMobile, isTablet }: pr
 
     return (
         <div className={`w-full bg-gradient-to-b ${getGradient(level)} shadow-2xl rounded-xl p-3 `}>
-            <h3 style={{ textShadow: '4px 6px 6px rgba(0, 0, 0, 0.3)' }} className={`${level !== 0 ? 'text-rose-100' : 'text-black'}  mb-4 `}>Evolución diaria</h3>
+            <h3  className={`${level !== 0 ? 'text-rose-100' : 'text-black'}  mb-4 `}>Evolución diaria</h3>
             <div className='bg-gradient-to-t from-black/80 to-redCard/0 rounded-md p-2'>
                 <div className="h-[250px]">
                     <canvas className='cursor-pointer' onClick={() => navigate('/user/balance')} ref={chartRef}></canvas>

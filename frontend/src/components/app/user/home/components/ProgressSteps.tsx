@@ -12,11 +12,11 @@ export function ProgressSteps({ currentStep = 4, totalSteps = 5, level }: Progre
     const { setLevel } = useLevel()
     return (
         <div className={`bg-gradient-to-b ${getGradient(level)} py-2 sm:py-4 px-3 shadow-2xl sm:h-32 rounded-xl w-full max-w-md sm:max-w-full`}>
-            <h2 style={{ textShadow: '4px 6px 6px rgba(0, 0, 0, 0.3)' }} className={`${level !== 0 ? 'text-white' : 'text-stone-900'} text-base  mb-4`}>Mi progreso</h2>
-            <div className="bg-gradient-to-t from-black to-redCard/0 min-h-12 flex flex-col rounded-b-md  ">
+            <h2  className={`${level !== 0 ? 'text-white' : 'text-stone-900'} text-base  mb-4`}>Mi progreso</h2>
+            <div className="min-h-12 flex flex-col rounded-b-md  ">
                 <div className="relative mt-auto mb-2">
                     {/* Línea de fondo */}
-                    <div className="absolute h-1 w-full bg-gray-300 top-1/2 -translate-y-1/2" />
+                    <div className="absolute h-1 w-full bg-[#F3CDF3] top-1/2 -translate-y-1/2" />
                     {/* Línea de progreso */}
                     <div
                         className="absolute h-1 bg-green-500 top-1/2 -translate-y-1/2 transition-all duration-500"
@@ -30,7 +30,6 @@ export function ProgressSteps({ currentStep = 4, totalSteps = 5, level }: Progre
                             const stepNumber = index + 1
                             const isCompleted = stepNumber <= currentStep
                             const isCurrent = stepNumber === currentStep
-
                             return (
                                 <div key={stepNumber} className="flex flex-col items-center">
                                     <div className="relative">

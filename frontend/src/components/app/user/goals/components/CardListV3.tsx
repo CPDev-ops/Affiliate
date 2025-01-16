@@ -45,7 +45,7 @@ export function CardListV3({ img, level, bgColor, range, credits, colorBorder, c
                         </span>
                     </div>
                     <div className="flex flex-col items-center justify-between lg:ml-auto">
-                        <span style={{ textShadow: '4px 6px 6px rgba(0, 0, 0, 0.5)' }} className={`text-xs   ${colorText}`}>
+                        <span  className={`text-xs   ${colorText}`}>
                             Objetivos de afiliación:
                         </span>
                         <span className="text-white text-xs ">

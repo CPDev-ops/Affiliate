@@ -10,6 +10,7 @@ import imgLevel3 from '/images/goals/level3.png';
 import imgLevel4 from '/images/goals/level4.png';
 import imgLevel5 from '/images/goals/level5.png';
 import { useLevel } from "../../../../context/LevelContext";
+import { FaLongArrowAltLeft } from "react-icons/fa";
 
 
 

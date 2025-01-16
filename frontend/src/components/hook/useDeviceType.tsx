@@ -14,19 +14,19 @@ export function getDeviceConfig(isDesktop: boolean, isTablet: boolean, isMobile:
     if (isDesktop) {
         return {
             barThickness: 60,
-            fontSize: 14,
+            fontSize: 24,
         }
     }
     if (isTablet) {
         return {
             barThickness: 40,
-            fontSize: 12,
+            fontSize: 16,
         }
     }
     if (isMobile) {
         return {
             barThickness: 20,
-            fontSize: 10,
+            fontSize: 12,
         }
     }
 }
