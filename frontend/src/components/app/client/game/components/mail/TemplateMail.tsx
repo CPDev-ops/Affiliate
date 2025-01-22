@@ -174,7 +174,7 @@ export function TemplateMail({ domain }: TemplateMailProps) {
             </div>
             {modal?.boolean && modal?.number === 401 && (
                 <Modal domain={domain} isOpen={true} onClose={() => setModal({ boolean: false, number: 401 })}>
-                    <ModalError domain={domain} buttonText="Continuar" onClose={() => navigate('/howToGet')} title={dataModal?.title} subTitle={dataModal?.subTitle} />
+                    <ModalError domain={domain} buttonText="Continuar" onClose={() => navigate('/client/game/howToGet')} title={dataModal?.title} subTitle={dataModal?.subTitle} />
                 </Modal>
             )}
             {modal?.boolean && modal?.number === 403 && (
@@ -184,7 +184,7 @@ export function TemplateMail({ domain }: TemplateMailProps) {
             )}
             {modal?.boolean && modal?.number === 402 && (
                 <Modal domain={domain} isOpen={true} onClose={() => setModal({ boolean: false, number: 402 })}>
-                    <ModalError domain={domain} buttonText="Cerrar" onClose={() => navigate('/alreadyPlayed')} title={dataModal?.title} subTitle={dataModal?.subTitle} />
+                    <ModalError domain={domain} buttonText="Cerrar" onClose={() => navigate('/client/game/alreadyPlayed')} title={dataModal?.title} subTitle={dataModal?.subTitle} />
                 </Modal>
             )}
             {modal?.boolean && modal?.number === 404 && (

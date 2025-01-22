@@ -15,7 +15,7 @@ export interface dtoModal {
 export function ModalOkMail({ onClose, email, domain }: Props) {
     /* const [loading, setLoading] = useState<boolean>(false); */
     const [showModal, setShowModal] = useState<boolean>(false);
-    console.log('DOMINO PARA MODAL',domain)
+    console.log('DOMINO PARA MODAL', domain)
     useEffect(() => {
         // Muestra el modal después de un pequeño retraso para que la animación se reproduzca correctamente
         const timeout = setTimeout(() => setShowModal(true), 10);
@@ -30,8 +30,8 @@ export function ModalOkMail({ onClose, email, domain }: Props) {
                         <div className="flex  flex-col justify-between  items-center py-1 flex-shrink">
                             <h2 className="text-4xl lg:text-3xl texto-inclinado text-[#FFFF00]  bebasNeueRegular text-center tracking-wide gradientTextRevert  px-2  break-words w-full  mx-auto uppercase ">{'YA TENÉS TU PREMIO'}</h2>
                         </div>
-                        <div style={{ textShadow: '4px 6px 6px rgba(0, 0, 0, 0.5)' }} className='flex   texto-inclinado flex-col justify-between  items-center py-1 flex-shrink'>
-                            <h3 className='text-xl lg:text-xl text-center tracking-wide text-white  my-2  break-words w-full'><span className='text-[#FFFF00]'>Ingresá</span> a tu casilla de correo <br />
+                        <div style={{ textShadow: '4px 6px 6px rgba(0, 0, 0, 0.5)' }} className='flex lg:ml-4  texto-inclinado flex-col justify-center   items-center py-1 flex-shrink'>
+                            <h3 className='text-xl lg:text-xl   text-center tracking-wide text-white  my-2  break-words w-full'><span className='text-[#FFFF00]'>Ingresá</span> a tu casilla de correo <br />
                                 <h1 className='text-base my-1'>{email}</h1><span className='text-[#FFFF00] text-xl'>y disfrutá!</span></h3>
                         </div>
                         <div className='flex   texto-inclinado flex-col justify-between  items-center py-1 flex-shrink'>
