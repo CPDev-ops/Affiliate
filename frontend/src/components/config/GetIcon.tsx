@@ -1,7 +1,7 @@
 // src/components/GetIcon.tsx
 import React, { useEffect } from 'react';
 // Función para mapear dominios a íconos
-const getIconForDomain = (domain: string): string => {
+/* const getIconForDomain = (domain: string): string => {
     switch (domain) {
         case 'PILAR':
             return '/images/icons/pilar.png';
@@ -19,32 +19,38 @@ const updateFavicon = (iconPath: string) => {
     if (favicon) {
         favicon.setAttribute('href', iconPath);
     }
-};
-export const GetIcon: React.FC = () => {
+}; */
+function getIconForDomain(domain: string): string {
+    const iconMap: { [key: string]: string } = {
+        PILAR: `/images/client/game/${domain.toLowerCase()}/logo-index.png`,
+        ZARATE: `/images/client/game/${domain.toLowerCase()}/logo-index.png`,
+        SALTA: `/images/client/game/${domain.toLowerCase()}/logo-index.png`,
+        DEFAULT: '/icons/default-icon.png',
+    };
+    return iconMap[domain] || iconMap.DEFAULT; // Devuelve la ruta del icono o un valor predeterminado
+}
+
+function updateFavicon(iconPath: string): void {
+    const link: HTMLLinkElement | null = document.querySelector("link[rel~='icon']");
+    if (link) {
+        link.href = iconPath;
+    } else {
+        const newLink = document.createElement('link');
+        newLink.rel = 'icon';
+        newLink.href = iconPath;
+        document.head.appendChild(newLink);
+    }
+}
+
+interface GetIconProps {
+    domain: string; // El dominio que llega por props
+}
+export const GetIcon: React.FC<GetIconProps> = ({ domain }) => {
     useEffect(() => {
-        const fetchUserDomain = async () => {
-            try {
-                /*      const response = await fetch('/api/user'); // Cambia esta URL según tu backend */
-                // Simula el response del backend
-                const response = {
-                    json: async () => ({
-                        domain: "PILAR", // Cambia esto a "SALTA" o "ZARATE" para probar
-                    }),
-                };
-                const data = await response.json();
-                const domain = data.domain || 'DEFAULT'; // Valor por defecto si no hay dominio
-                const iconPath = getIconForDomain(domain);
-                updateFavicon(iconPath);
-            } catch (error) {
-                console.error('Error fetching user domain:', error);
-                const defaultIconPath = getIconForDomain('DEFAULT');
-                updateFavicon(defaultIconPath);
-            }
-        };
-        fetchUserDomain();
-    }, []);
-    return null; // No retorna nada
+        const iconPath = getIconForDomain(domain.toUpperCase()); // Obtén la ruta del icono según el dominio
+        updateFavicon(iconPath); // Actualiza el favicon
+    }, [domain]); // Reacciona a cambios en el dominio
+
+    return null; // No renderiza nada
 };
 
-
-//

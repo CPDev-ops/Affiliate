@@ -1,11 +1,9 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
-import { domain } from "../../../content/dataDomain";
 import { LoaderHover } from "../../loaders/Loaders";
 const img = `/images/backgroundImage.png`
-const logoDomain = `/images/${domain.toLowerCase()}/logo-dominio.png`
 
-export function Login() {
+export function Login({ domain }: { domain: string }) {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
     function sendData() {
@@ -42,7 +40,7 @@ export function Login() {
                         <div className="flex justify-center">
                             <div className="w-full    max-w-xs">
                                 <img
-                                    src={logoDomain}
+                                    src={`/images/${domain.toLowerCase()}/logo-dominio.png`}
                                     alt="Beach Oasis Zarate"
                                     className="w-40 mx-auto   h-auto"
                                 />

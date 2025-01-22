@@ -9,10 +9,20 @@ import { HowToGet } from './components/app/client/HowToGet';
 import { Balance } from './components/app/user/Balance/Balance';
 import { useLevel } from './context/LevelContext';
 import { useEffect } from 'react';
+import { Summary } from './components/app/user/summary/Summary';
+import { Collaborators } from './components/app/user/collaborators/Collaborators';
+import { GameModule } from './components/app/client/game/Game';
+import { GradientWrapper } from './components/hook/GradientWrapper';
+import { getDomainInfo } from './components/utils/changedDomainPage';
+import { HowToGetPage } from './components/app/client/game/howToGet/Page';
+import { AlreadyPlayedPage } from './components/app/client/game/alreadyPlayed/Page';
 
 function App() {
   const { level } = useLevel(); // Usamos el valor de 'level' desde el contexto
 
+  // Ejemplo de uso
+  const { domainName, domain } = getDomainInfo();
+  console.log(domain, domainName)
   // Efecto para cambiar el background cada vez que 'level' cambie
   useEffect(() => {
     // Elimina todas las clases previas que puedan estar relacionadas con el fondo
@@ -33,20 +43,25 @@ function App() {
   return (
     <div className="gothamMedium">
       <Router>
-        <GetIcon />
+        <GetIcon domain={domain} />
         <Routes>
           <Route path='/' element={<AdminApp />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/client' element={<FormClient />} />
-          <Route path='/client/howToGet' element={<HowToGet />} />
-          <Route path='/user/home' element={<Home />} />
-          <Route path='/user/goals' element={<Goals />} />
-          <Route path='/user/balance' element={<Balance />} />
+          <Route path='/login' element={<Login domain={domain} />} />
+          <Route path='/client' element={<FormClient domain={domain} />} />
+          <Route path='/client/game' element={<GradientWrapper domain={domain}><GameModule domain={domain} /></GradientWrapper>} />
+          <Route path='/client/game/howToGet' element={<GradientWrapper domain={domain}><HowToGetPage domain={domain} /></GradientWrapper>} />
+          <Route path='/client/game/alreadyPlayed' element={<GradientWrapper domain={domain}><AlreadyPlayedPage domain={domain} /></GradientWrapper>} />
+          <Route path='/client/howToGet' element={<HowToGet domain={domain} />} />
+          <Route path='/user/home' element={<Home domain={domain} />} />
+          <Route path='/user/goals' element={<Goals domain={domain} />} />
+          <Route path='/user/balance' element={<Balance domain={domain} />} />
+          <Route path='/user/summary' element={<Summary domain={domain} />} />
+          <Route path='/user/collaborators' element={<Collaborators domain={domain} />} />
         </Routes>
       </Router>
     </div >
-
   )
 }
+
 
 export default App

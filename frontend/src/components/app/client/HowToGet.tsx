@@ -1,11 +1,10 @@
-import { domain, googleMapsPilar, googleMapsSalta, googleMapsZarate } from "../../../content/dataDomain";
+import { googleMapsPilar, googleMapsSalta, googleMapsZarate } from "../../../content/dataDomain";
 import { useDeviceType } from "../../hook/useDeviceType";
 import { Footer } from "../auth/components/Footer";
 
 const img = `/images/backgroundImage.png`
-const logoDomain = `/images/${domain.toLowerCase()}/logo-dominio.png`
 
-export function HowToGet() {
+export function HowToGet({ domain }: { domain: string }) {
     const { isDesktop, isMobile, isTablet } = useDeviceType()
 
     //funcion que hace la logica del open para cada sede segun el dominio
@@ -36,7 +35,7 @@ export function HowToGet() {
                         <div className="flex justify-center">
                             <div className="w-full    max-w-xs">
                                 <img
-                                    src={logoDomain}
+                                    src={`/images/${domain.toLowerCase()}/logo-dominio.png`}
                                     alt="Beach Oasis Zarate"
                                     className="w-40 mx-auto   h-auto"
                                 />
@@ -58,7 +57,7 @@ export function HowToGet() {
                 </div>
             </div>
             {/* Footer Logo */}
-            <Footer isDesktop={isDesktop} isMobile={isMobile} isTablet={isTablet} />
+            <Footer domain={domain} isDesktop={isDesktop} isMobile={isMobile} isTablet={isTablet} />
         </div>
     )
 }

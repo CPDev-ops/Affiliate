@@ -5,17 +5,16 @@ import { useNavigate } from "react-router-dom";
 //importamos motion desde la libreria framer
 import { motion } from 'framer-motion'
 import { ModalLogic } from "../../../logic/Modal";
-import { domain } from "../../../../content/dataDomain";
 import { getColorNav } from "../../../config/getGradient";
 
-const navbarImage = `/images/navbar-${domain.toLowerCase()}.png`
-const navbarImageInit = `/images/navbar-${domain.toLowerCase()}-dark.png`
+
 
 interface NavbarProp {
     level: number
+    domain: string
 }
 
-export function Navbar({ level }: NavbarProp) {
+export function Navbar({ level, domain }: NavbarProp) {
     //links para el navigate
     const navLinks = [
         { title: "Home", path: "/user/home" },
@@ -23,7 +22,7 @@ export function Navbar({ level }: NavbarProp) {
         { title: 'Ver Resumenes', path: '/user/summary' },
         { title: "Ver Objetivos", path: "/user/goals" },
         { title: 'Historial', path: '/user/history' },
-        { title: 'Crear Usuarios', path: '/user/createUsers' },
+        { title: 'Colaboradores', path: '/user/collaborators' },
         { title: "Cerrar Sesión", path: "/login" },
     ]
     const navigate = useNavigate()
@@ -56,7 +55,7 @@ export function Navbar({ level }: NavbarProp) {
 
     return (
         <div className={`flex justify-between items-center  lg:py-2 ${getColorNav(level)} shadow-md shadow-black/35   gap-2 `}>
-            <img src={level !== 0 ? navbarImage : navbarImageInit}
+            <img src={level !== 0 ? `/images/navbar-${domain.toLowerCase()}.png` : `/images/navbar-${domain.toLowerCase()}-dark.png`}
                 alt="Logo"
                 className="rounded-full hidden w-72 p-4 py-2 h-full" />
             <HiBars3 onClick={openSidebar} size={40} color={`${level !== 0 ? 'white' : 'black'}`} className="mr-4 cursor-pointer  ml-auto" />

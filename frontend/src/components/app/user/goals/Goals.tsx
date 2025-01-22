@@ -1,5 +1,3 @@
-import { Navbar } from "../components/Navbar";
-import { motion } from "framer-motion"
 import { Header } from "./components/Header";
 import { CardListV3 } from "./components/CardListV3";
 
@@ -11,10 +9,13 @@ import imgLevel4 from '/images/goals/level4.png';
 import imgLevel5 from '/images/goals/level5.png';
 import { useLevel } from "../../../../context/LevelContext";
 import { IconBackHome } from "../components/Icon";
+import { ContainerModules } from "../../../hook/containerModules";
 
 
-
-export function Goals() {
+interface GoalsProps {
+    domain: string
+}
+export function Goals({ domain }: GoalsProps) {
     const { level } = useLevel(); // Acceder al valor de 'level'
     const levels = [
         {
@@ -65,25 +66,16 @@ export function Goals() {
     ];
 
     return (
-        <div className="max-w-md sm:max-w-full mx-auto min-h-screen">
-            <Navbar level={level} />
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-            >
-                <div className="p-4 sm:max-w-4xl lg:max-w-7xl mx-auto">
-                    <IconBackHome level={level} />
-                    <Header level={level} />
-                </div>
-                <div className="max-w-md sm:max-w-4xl lg:max-w-7xl mx-auto  p-4 h-[700px] overflow-y-auto">
-                    <ul className="space-y-2">
-                        {levels.map((levelDate) => (
-                            <CardListV3 userLevel={level} colorText={levelDate.textColor} img={levelDate.img} colorBorder={levelDate.colorBorder} bgColor={levelDate.bgColor} credits={levelDate.credits} level={levelDate.level} range={levelDate.range} />
-                        ))}
-                    </ul>
-                </div>
-            </motion.div>
-        </div>
+        <ContainerModules domain={domain}>
+            <IconBackHome level={level} />
+            <Header level={level} />
+            <div className="max-w-md sm:max-w-4xl lg:max-w-7xl mx-auto   h-[700px] overflow-y-auto">
+                <ul className="space-y-2">
+                    {levels.map((levelDate) => (
+                        <CardListV3 userLevel={level} colorText={levelDate.textColor} img={levelDate.img} colorBorder={levelDate.colorBorder} bgColor={levelDate.bgColor} credits={levelDate.credits} level={levelDate.level} range={levelDate.range} />
+                    ))}
+                </ul>
+            </div>
+        </ContainerModules>
     )
 }

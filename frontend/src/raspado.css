@@ -1,0 +1,143 @@
+/* UTILIZAMOS VARIABVLES Q REPERCUTAN SEGUN DOMINIO EN MIS OTROS COMPONENTES */
+:root {
+    --border-color: #FFFF5A;
+    /* COLOR PREDETERMINADO */
+}
+
+
+/* Contenedor principal */
+.contenedor-raspada {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    row-gap: 1em;
+    background-image: radial-gradient(circle, #fff 60%, #cfcecb);
+    font-family: sans-serif;
+}
+
+/* Tarjeta raspable */
+.scratch-card {
+    position: relative;
+    border: 12px solid var(--border-color);/* USAMOS VARIABLE PARA Q ESTA CAMBIE DE VALOR SEGUN EL DOMINIO */
+    border-radius: 20px;
+    width: 80%;
+    max-width: 300px;
+    height: 320px;
+    background-color: #fb090900;
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.8);
+}
+
+/* Contenedor de la cubierta */
+.scratch-card-cover-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    z-index: 1;
+    filter: url(#remove-black);
+    transition: opacity 0.4s;
+}
+
+.scratch-card-cover-container.clear {
+    opacity: 0;
+}
+
+.scratch-card-cover-container.hidden {
+    display: none;
+}
+
+/* Canvas para la interacción */
+.scratch-card-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    touch-action: none;
+    z-index: 2;
+}
+
+.scratch-card-canvas.hidden {
+    opacity: 0;
+}
+
+.scratch-card-canvas:active {
+    cursor: grabbing;
+}
+
+/* Renderizado de la cubierta */
+.scratch-card-cover-render {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    transition: background-color 0.2s;
+    z-index: 1;
+}
+
+.scratch-card-cover-render.hidden {
+    display: none;
+}
+
+/* Cubierta de la tarjeta */
+.scratch-card-cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(/images/client/game/raspada.png);
+    background-color: transparent;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Efectos visuales de la cubierta */
+.scratch-card-cover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, transparent 40%, rgba(255, 255, 255, 0) 50%, transparent 60%);
+    background-position: bottom right;
+    background-size: 300% 300%;
+    background-repeat: no-repeat;
+}
+
+.scratch-card-cover.shine::before {
+    animation: shine 0s infinite;
+}
+
+.scratch-card-cover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    filter: url(#noise);
+}
+
+/* Animación de brillo */
+@keyframes shine {
+    50% {
+        background-position: 0% 0%;
+    }
+
+    100% {
+        background-position: -50% -50%;
+    }
+}

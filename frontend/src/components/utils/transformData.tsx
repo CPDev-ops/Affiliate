@@ -60,7 +60,25 @@ export const getTextByLevel = (level: number): string => {
             return 'text-[#000000]'; // Color por defecto
     }
 };
-
+//functino que trae el color para el modulo de summary
+export const getTextSummaryLevel = (level: number): string => {
+    switch (level) {
+        case 0:
+            return 'text-[#000000]'; // Rojo para nivel 0
+        case 1:
+            return 'text-[#FFFFFF]'; // Amarillo para nivel 1
+        case 2:
+            return 'text-[#FFFFFF]'; // Naranja para nivel 2
+        case 3:
+            return 'text-[#FFFFFF]'; // Verde para nivel 3
+        case 4:
+            return 'text-[#FFFFFF]'; // Azul para nivel 4
+        case 5:
+            return 'text-[#FFFFFF]'; // Morado para nivel 5
+        default:
+            return 'text-[#000000]'; // Color por defecto
+    }
+}
 
 //function qu eme retorna el color para el el componente de ingresos diarios
 export const getColorByChartText = (level: number): string => {
@@ -115,5 +133,44 @@ export const getColorLineMain = (level: number): string => {
             return 'rgba(255, 0, 0, 1)';
         default:
             return 'rgba(0, 0, 0, 1)';
+    }
+}
+
+//obtener gradiente de button segund el level
+export const getBackgroundButton = (level: number): string => {
+    switch (level) {
+        case 0:
+            return 'bg-[#FB5F2F] hover:bg-[#C74922] border-[#FF3B88]';
+        case 1:
+            return 'bg-[#FB5F2F] hover:bg-[#C74922] border-[#FF3B88]';
+        case 2:
+            return 'bg-[#FB5F2F] hover:bg-[#C74922] border-[#FF3B88]';
+        case 3:
+            return 'bg-[#FF00FF] hover:bg-[#BD11BD] border-[#FF3B88]';
+        case 4:
+            return 'bg-[#FF00FF] hover:bg-[#BD11BD] border-[#FF3B88]';
+        case 5:
+            return 'bg-[#FF00FF] hover:bg-[#BD11BD] border-[#FF3B88]';
+        default:
+            return 'bg-[#FB5F2F] hover:bg-[#C74922]';
+    }
+}
+
+export const getBackgroundButtonModal = (level: number): string => {
+    switch (level) {
+        case 0:
+            return 'bg-[#FFC600] hover:bg-[#CBA009] ';
+        case 1:
+            return 'bg-[#FFC600] hover:bg-[#CBA009] ';
+        case 2:
+            return 'bg-[#FFC600] hover:bg-[#CBA009] ';
+        case 3:
+            return 'bg-[#FFC600] hover:bg-[#CBA009] ';
+        case 4:
+            return 'bg-[#FF00FF] hover:bg-[#BD11BD] ';
+        case 5:
+            return 'bg-[#FF00FF] hover:bg-[#BD11BD] ';
+        default:
+            return 'bg-[#FFC600] hover:bg-[#CBA009]';
     }
 }

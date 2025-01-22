@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <table style="text-align: center; max-width: 600px; background: rgb(240, 240, 240);">
+        <tr style="background: linear-gradient(to right, #FC0F26, #FD27F1); ">
+            <td>
+                <div style="padding: 10px 10px 5px 10px;">
+                    <img src="https://marketing.bingopilar.com.ar/static/images/logo_blanco.png" alt="" style="max-width: 300px; ">
+                </div>
+            </td>
+        </tr>
+        <tr style="padding-left:10px;">
+            <td>
+                <div style="color: #666666; font-family: sans-serif; ">
+                    <h3 style="margin-bottom: 0;" id="respuestaGanador">¡Felicitaciones {{ nombre }}!</h3>
+                    <h2 style="margin: 0;">GANASTE</h2>
+                </div>
+            </td>
+        </tr>
+        <tr >
+            <td>
+                <div >
+                    <h4 id="premioTexto" style="font-family: sans-serif; margin-top: 1%;" >{{ premio }}</h4>
+                    <img id="premioQR" style="height: 200px; width: 200px;" src="https://marketing.bingopilar.com.ar/obtener_qr_premio?qr_accion_web={{ imagen_qr }}" >
+                    <h4 id="QrNúmero" style="font-family:sans-serif">{{codigo_qr}}</h4>
+                </div>
+            </td>
+        </tr>
+        <tr >
+            <td style="padding: 0 10%;">
+                <p style="font-family: sans-serif;">Presentá este código en nuestro stand de atención al cliente. <br> Tenés 4 días para canjearlo.</p>
+                <p style="font-family: sans-serif;" id="vigencia">Vigencia desde: {{fecha_vigencia}}</p>
+                <button style="border-radius: 30px; background: linear-gradient(to right, #FC0F26, #FD27F1); border:none; margin: 2%; box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3); padding: 2% 5%;"> <a style="color: white; text-decoration: none;" href="https://maps.app.goo.gl/NVKtzZWH5m6JyTHF9" >CÓMO LLEGAR</a> </button>
+                <p style="font-family: sans-serif; margin-bottom: 0;">PANAMERICANA KM 50.4</p>
+                <p style="font-family: sans-serif; margin-top: 0; margin-bottom: 10%;">ESTACIONAMIENTO GRATUITO</p>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

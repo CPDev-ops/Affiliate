@@ -10,7 +10,7 @@ export interface propDomain {
 export const level: number = 4
 
 //dominio que maneja el flujo de la aplicacion
-export const domain: string = 'ZARATE'//puede ser SALTA O PILAR O ZARATE
+/* export const domain: string = 'PILAR' *///puede ser SALTA O PILAR O ZARATE
 
 //PILAR
 //variables y links para el footer y links de google map
@@ -20,7 +20,7 @@ export const instagramPilar = 'https://www.instagram.com/bingooasispilar/'
 export const googleMapsPilar = 'https://maps.app.goo.gl/rgqmXwv3xqAgcqio9'
 export const urlWebPilar = 'https://bingopilar.com.ar/'
 //codigo de la campana
-export const codeCampaignPilar = '886028de19'//prod:886028de19
+export const codeCampaignPilar = 'c0d4b09bb9'//prod:886028de19
 
 //ZARATE
 export const facebookZarate = 'https://www.facebook.com/oasiszarate'
@@ -29,7 +29,7 @@ export const instagramZarate = 'https://www.instagram.com/oasiszarate/'
 export const googleMapsZarate = 'https://maps.app.goo.gl/sCWmJSbuHeNeeYFM7'
 export const urlWebZarate = 'https://oasiszarate.com.ar/'
 //codigo de la campana
-export const codeCampaignZarate = 'a0a1afe2f7'//prod:a0a1afe2f7
+export const codeCampaignZarate = 'c0d4b09bb9'//prod:a0a1afe2f7
 
 //SALTA 
 export const facebookSalta = 'https://www.facebook.com/nuevocasinoalberdi'
@@ -38,6 +38,6 @@ export const instagramSalta = 'https://www.instagram.com/nuevocasinoalberdi/'
 export const googleMapsSalta = 'https://maps.app.goo.gl/pomhB8qTs8vvaRYz8'
 export const urlWebSalta = 'https://nuevocasinoalberdi.com.ar/'
 //codigo de la campana
-export const codeCampaignSalta = 'ef8e2923e3'//prod:ef8e2923e3
+export const codeCampaignSalta = 'c0d4b09bb9'//prod:ef8e2923e3
 
 //c0d4b09bb9// para desarrollo

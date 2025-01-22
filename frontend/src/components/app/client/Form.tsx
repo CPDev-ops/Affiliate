@@ -1,19 +1,18 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
-import { domain } from "../../../content/dataDomain";
 import { useDeviceType } from "../../hook/useDeviceType";
 import { LoaderHover } from "../../loaders/Loaders";
 import { Footer } from "../auth/components/Footer";
 const img = `/images/backgroundImage.png`
-const logoDomain = `/images/${domain.toLowerCase()}/logo-dominio.png`
+
 
 export const isValidEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email)
 }
 
-export function FormClient() {
-    
+export function FormClient({ domain }: { domain: string }) {
+
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
     function sendData() {
@@ -40,7 +39,7 @@ export function FormClient() {
             alert('Por favor ingrese un mail valido y acepte los terminos y condiciones')
         }
     }
-    
+
     const { isDesktop, isMobile, isTablet } = useDeviceType()
 
     return (
@@ -61,7 +60,7 @@ export function FormClient() {
                         <div className="flex justify-center">
                             <div className="w-f ull    max-w-xs">
                                 <img
-                                    src={logoDomain}
+                                    src={`/images/${domain.toLowerCase()}/logo-dominio.png`}
                                     alt="Beach Oasis Zarate"
                                     className="w-40 mx-auto   h-auto"
                                 />
@@ -101,7 +100,7 @@ export function FormClient() {
                     {/* Footer */}
                 </div>
             </div>
-            <Footer isDesktop={isDesktop} isMobile={isMobile} isTablet={isTablet} />
+            <Footer domain={domain} isDesktop={isDesktop} isMobile={isMobile} isTablet={isTablet} />
         </div>
     )
 }
