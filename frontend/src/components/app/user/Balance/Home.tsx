@@ -2,8 +2,6 @@ import { Header } from "./components/Header"
 import { CardCreditsEarned } from "./components/CardCreditsEarned"
 import { ProgressSteps } from "./components/ProgressSteps"
 import { useLevel } from "../../../../context/LevelContext"
-/* import { useDeviceType } from "../../../hook/useDeviceType" */
-/* import { EmojiOrIconChart } from "./components/EmojiChart" */
 import { ContainerModules } from "../../../hook/containerModules"
 
 interface HomeProps {
@@ -11,8 +9,7 @@ interface HomeProps {
 }
 export function Home({ domain }: HomeProps) {
     const { level } = useLevel(); // Acceder al valor de 'level'
-    /*   const { isDesktop, isMobile, isTablet } = useDeviceType() */
-    /* const valuesData = [10, 60, 4, 40] */
+    console.log('forzando build')
     return (
         <ContainerModules domain={domain}>
             {/* Header */}
@@ -31,4 +28,3 @@ export function Home({ domain }: HomeProps) {
     )
 }
 
-//funciones q retornan valores hardcodeados para el testeo rapido
