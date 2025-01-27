@@ -40,7 +40,7 @@ export function Login({ domain }: { domain: string }) {
                         <div className="flex justify-center">
                             <div className="w-full    max-w-xs">
                                 <img
-                                    src={`/images/${domain.toLowerCase()}/logo-dominio.png`}
+                                    src={`/images/negocio-${domain.toLowerCase()}.png`}
                                     alt="Beach Oasis Zarate"
                                     className="w-40 mx-auto   h-auto"
                                 />
