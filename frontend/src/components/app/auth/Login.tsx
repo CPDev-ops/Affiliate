@@ -10,7 +10,7 @@ export function Login({ domain }: { domain: string }) {
         setLoading(true)
         setTimeout(() => {
             setLoading(false)
-            navigate('/user/home')
+            navigate('/user/balance')
         }, 1000);
     }
     const [user, setUser] = useState<string>('')

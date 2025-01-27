@@ -1,3 +1,5 @@
+import { getGradient } from "../../../client/game/utils/utils";
+
 interface Level {
     level: number;
     bgColor: string;
@@ -9,7 +11,8 @@ interface Level {
     userLevel: number
 }
 
-export function CardListV3({ img, level, bgColor, range, credits, colorBorder, colorText, userLevel }: Level) {
+export function Card({ img, level, bgColor, range, credits, colorBorder, colorText, userLevel }: Level) {
+   console.log(bgColor,userLevel)
     //utilizamos la funcion INTl.NumberFormat
     function formatNumber(value: number) {
         return new Intl.NumberFormat('es-ES').format(value);
@@ -18,11 +21,11 @@ export function CardListV3({ img, level, bgColor, range, credits, colorBorder, c
 
     return (
         <div className="relative w-full">
-            <h1 className={`uppercase ${userLevel !== 0 ? 'text-white' : 'text-stone-700'} font-bold `}>NIVEL {level}</h1>
-            <div className={`relative overflow-hidden rounded-xl bg-gradient-to-b ${bgColor} shadow-2xl transition-all duration-300 hover:scale-[1.02] group`}>
+            <h1 className={`uppercase  font-bold text-[#3E3838] `}>NIVEL {level}</h1>
+            <div className={`relative overflow-hidden rounded-xl bg-gradient-to-b ${getGradient(level)} shadow-2xl transition-all duration-300 hover:scale-[1.02] group`}>
                 {/* Efecto de brillo */}
                 <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="relative flex items-center p-4 gap-4">
+                <div className="relative flex items-center text-white p-4 gap-4">
                     {/* Contenedor del icono con glow */}
                     <div className="relative shrink-0">
                         <div className={`absolute inset-0 /30 blur-xl`} />
@@ -37,7 +40,7 @@ export function CardListV3({ img, level, bgColor, range, credits, colorBorder, c
 
                     {/* Contenido */}
                     <div className="flex flex-col items-center justify-between">
-                        <span className="text-2xl  text-white">
+                        <span className="text-2xl  ">
                             ${creditsConvert}
                         </span>
                         <span className={`text-xs ${colorText}`}>
@@ -48,7 +51,7 @@ export function CardListV3({ img, level, bgColor, range, credits, colorBorder, c
                         <span  className={`text-xs   ${colorText}`}>
                             Objetivos de afiliación:
                         </span>
-                        <span className="text-white text-xs ">
+                        <span className=" text-xs ">
                             {range}
                         </span>
                     </div>

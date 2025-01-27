@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, PointElement, CategoryScale, LinearScale, Title, Tooltip } from 'chart.js';
-import { getGradient } from '../../../../config/getGradient';
-import { generateWeekLabels, getColorByChartText, getColorLinesChartBackground, getCurrentMonth } from '../../../../utils/transformData';
+import { backgroundByIndex, generateWeekLabels, getColorByChartText, getColorLinesChartBackground, getCurrentMonth } from '../../../../utils/transformData';
 import { getDeviceConfig } from '../../../../hook/useDeviceType';
+import { getGradient } from '../../../client/game/utils/utils';
 
 // Registrar componentes de Chart.js
 ChartJS.register(LineElement, PointElement, CategoryScale, LinearScale, Title, Tooltip);
@@ -96,35 +96,37 @@ export const AllCollaboratorsChart = ({ level, names, conversionValuesList, isDe
     }, [level, conversionValuesList]);
 
     return (
-        <div className={`w-full bg-gradient-to-b ${getGradient(level)} shadow-2xl rounded-xl p-3 `}>
-            <h3 className={`${level !== 0 ? 'text-white' : 'text-black'} mb-4`}>Ingresos diarios</h3>
+        <div className=''>
             {/* Mostrar los nombres en la parte superior */}
-            <div className="flex justify-around text-[70%] mb-4">
-                {names.map((name, index) => (
-                    <div key={index} className="flex bg-black/20 p-1 rounded-md items-center space-x-2">
-                        {/* Círculo pequeño */}
-                        <div
-                            style={{
-                                backgroundColor: `hsl(${index * 360 / names.length}, 70%, 50%)`, // Colores dinámicos para coincidir con las líneas
-                            }}
-                            className="w-4 h-4 rounded-full"
-                        ></div>
-                        {/* Nombre del usuario */}
-                        <span className=''
-                            style={{
-                                color: `white`, // Colores dinámicos para coincidir con las líneas
-                            }}
-                        >
-                            
-                            {name}
-                        </span>
+            <div className="flex justify-start items-center  mb-4">
+                <div>
+                    <h1 className='text-start'>Comparativas de ingresos por período</h1>
+                    <div className='flex justify-between   items-center gap-2'>
+                        {names.map((name, index) => (
+                            <div key={index} className="flex bg-[#3E3838] p-2 rounded-full items-center space-x-2">
+                                {/* Círculo pequeño */}
+                                <div
+
+                                    className={`w-4 h-4 rounded-full ${backgroundByIndex(index)}`}
+                                ></div>
+                                {/* Nombre del usuario */}
+                                <span className='text-xs'
+                                    style={{
+                                        color: `white`, // Colores dinámicos para coincidir con las líneas
+                                    }}
+                                >
+                                    {name}
+                                </span>
+                            </div>
+                        ))}
                     </div>
-                ))}
+                </div>
             </div>
-
-
-            <div className="rounded-md mx-auto flex justify-center items-center p-2 max-h-[500px] w-full">
-                <Line ref={chartRef} data={data} options={config} />
+            <div className={`w-full bg-gradient-to-b ${getGradient(level)} shadow-2xl rounded-xl p-3 `}>
+                <h3 className={`${level !== 0 ? 'text-white' : 'text-black'} mb-4`}>Ingresos diarios</h3>
+                <div className="rounded-md mx-auto flex justify-center items-center p-2 max-h-[500px] w-full">
+                    <Line ref={chartRef} data={data} options={config} />
+                </div>
             </div>
         </div>
     );

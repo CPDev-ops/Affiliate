@@ -8,6 +8,8 @@ import { getBackgroundButton } from "../../../utils/transformData";
 import { AllCollaboratorsChart } from "./components/ChartData";
 import { useDeviceType } from "../../../hook/useDeviceType";
 import { CollaboratorCard } from "./components/CollaboratorCard";
+import { useState } from "react";
+import { ModalForm } from "./components/CreateCollaborator";
 
 interface CollaboratorsProps {
     domain: string
@@ -40,28 +42,40 @@ export function Collaborators({ domain }: CollaboratorsProps) {
             isVisible: false,
         },
     ]
+    //modal para crear el colaborador
+    const [modal, setModal] = useState<boolean>(false)
+
     return (
         <ContainerModules domain={domain}>
             <IconBackHome level={level} />
-            <Header level={level} />
+            <Header length={collaborators.length} level={level} />
             {/* CARD COLLABORATORS */}
-            <div className="space-y-2 py-4">
-                {collaborators.map((collaborator) => (
-                    <CollaboratorCard level={level} key={collaborator.id} name={collaborator.name} imageUrl={collaborator.imageUrl} isVisible={collaborator.isVisible} />
-                ))}
+            <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-center">
+                {collaborators.length > 0 && (
+                    collaborators.map((collaborator, index) => (
+                        <CollaboratorCard id={index} level={level} key={collaborator.id} name={collaborator.name} imageUrl={collaborator.imageUrl} isVisible={collaborator.isVisible} />
+                    ))
+                )}
             </div>
-            <ButtonComponent text="Crear Colaborador" className={`w-1/2 font-semibold ${backgroundButton} `} click={() => console.log('lsdmamklds')} icon={<IoMdAdd />} />
-            <div className="my-4">
-                <AllCollaboratorsChart
-                    names={names}
-                    level={level}
-                    conversionValuesList={[valuesData1, valuesData2, valuesData3]} // Pasa múltiples datasets
-                    isDesktop={isDesktop}
-                    isMobile={isMobile}
-                    isTablet={isTablet}
-                />
+            <div className="w-1/2 lg:w-1/6 lg:ml-auto">
+                <ButtonComponent text="Crear Colaborador" className={` my-4 font-semibold ${backgroundButton} `} click={() => setModal(true)} icon={<IoMdAdd />} />
             </div>
+            <AllCollaboratorsChart
+                names={names}
+                level={level}
+                conversionValuesList={[valuesData1, valuesData2, valuesData3]} // Pasa múltiples datasets
+                isDesktop={isDesktop}
+                isMobile={isMobile}
+                isTablet={isTablet}
+            />
+            {modal && (
+                <ModalForm level={level} close={() => setModal(false)} />
+            )}
         </ContainerModules>
     )
 }
+
+
+
+
 

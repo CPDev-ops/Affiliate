@@ -1,17 +1,16 @@
-import { FaFileDownload } from "react-icons/fa";
 import { useLevel } from "../../../../context/LevelContext";
 import { ContainerModules } from "../../../hook/containerModules";
-import { getTextSummaryLevel } from "../../../utils/transformData";
+import { formatAmount } from "../../../utils/transformData";
 import { IconBackHome } from "../components/Icon";
 import { Header } from "./components/Header";
-import { level } from "../../../../content/dataDomain";
+import { getGradient } from "../../client/game/utils/utils";
+import { MdDownloadForOffline } from "react-icons/md";
 
 interface SummaryProps {
     domain: string
 }
 export function Summary({ domain }: SummaryProps) {
     const { level } = useLevel(); // Acceder al valor de 'level'
-    const color = getTextSummaryLevel(level)//obtenemos el color segun el level de usuario
     const data: dto[] = [
         {
             month: 'Marzo 2025',
@@ -33,9 +32,11 @@ export function Summary({ domain }: SummaryProps) {
         <ContainerModules domain={domain}>
             <IconBackHome level={level} />
             <Header level={level} />
-            {data.map((value) => (
-                <Card data={value} color={color} />
-            ))}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {data.map((value) => (
+                    <Card level={level} data={value} />
+                ))}
+            </div>
         </ContainerModules>
     )
 }
@@ -43,9 +44,8 @@ export function Summary({ domain }: SummaryProps) {
 
 
 interface CardProps {
-    color: string;
     data: dto
-
+    level: number
 }
 interface dto {
     month: string;
@@ -53,24 +53,34 @@ interface dto {
     amount: number
 }
 
-function Card({ color, data }: CardProps) {
+function Card({ data, level }: CardProps) {
     return (
-        <div className="my-4">
-            <h2 className={`${color} mb-1 font-semibold`}>{data.month}</h2>
-            <div className="border border-[#FF0000] rounded-xl backdrop-blur-sm overflow-hidden">
-                <div className="p-2 space-y-2 text-sm">
-                    <div className="flex items-center justify-between">
-                        <span className={`px-3 py-1 ${data.state === 0 ? 'bg-[#FF0000]' : 'bg-[#10BF16]'} w-full   rounded-full text-white`}>{data.state === 0 ? 'Pendiente de Pago' : 'Pagado'}</span>
+        <div className="w-full max-w-md ">
+            <div className={`rounded-md bg-gradient-to-b ${getGradient(level)} p-2 shadow-lg`}>
+                <div className=" space-y-2">
+                    <div>
+                        {data.state === 0 ? (
+                            <span className="inline-block rounded-full bg-[#FF0000] px-4 py-1 text-xs text-center shadow-sm w-2/4 lg:w-full xl:w-2/4 font-medium text-white">
+                                Pendiente de pago
+                            </span>
+                        ) : (
+                            <span className="inline-block rounded-full bg-[#10BF16] px-4 py-1 text-xs text-center shadow-sm w-2/4 lg:w-full xl:w-2/4 font-medium text-white">
+                                Pagado
+                            </span>
+                        )}
                     </div>
-                    <div className={`flex  items-center justify-between border-t border-white/10 pt-2`}>
-                        <span className={`${color} `}>Total a cobrar:</span>
-                        <span className={`${color} mr-auto ml-4`}>${data.amount}</span>
-                        <div className="flex items-center gap-2">
-                            <FaFileDownload className={`${level !== 0 ? 'text-[#FFFFFF]' : 'text-[#6C6C6C]'}`} size={24} />
+                    <div className={`${level !== 0 ? 'text-white' : 'text-[#3E3838]'} flex justify-between  items-center`}>
+                        <div className=" flex-col ">
+                            <h2 className="text-sm font-semibold ">{data.month}</h2>
+                            <div className="flex justify-center items-center">
+                                <p className="text-sm ">Total a cobrar: ${formatAmount(data.amount)}</p>
+                            </div>
                         </div>
+                        <button onClick={() => alert('Descargando PDF')} className="rounded-full">
+                            <MdDownloadForOffline className="h-6 w-6 " />
+                        </button>
                     </div>
                 </div>
-
             </div>
         </div>
     )

@@ -1,9 +1,10 @@
-import { FaLongArrowAltLeft } from "react-icons/fa";
+import { HiOutlineArrowNarrowLeft } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 
 export function IconBackHome({ level }: { level: number }) {
     const navigate = useNavigate()
+    console.log(level)
     return (
-        <FaLongArrowAltLeft onClick={() => navigate('/user/home')} className={`${level !== 0 ? 'text-white' : 'text-[#6C6C6C]'}`} size={24} />
+        <HiOutlineArrowNarrowLeft onClick={() => navigate('/user/balance')} className={`text-[#3E3838]`} size={24} />
     )
 }

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, PointElement, CategoryScale, LinearScale, Title, Tooltip } from 'chart.js';
-import { getGradient } from '../../../../config/getGradient';
+import { getGradient } from '../../../client/game/utils/utils';
 import { generateWeekLabels, getColorByChartText, getColorLineMain, getColorLinesChartBackground, getCurrentMonth } from '../../../../utils/transformData';
 import { getDeviceConfig } from '../../../../hook/useDeviceType';
 // Registrar componentes de Chart.js

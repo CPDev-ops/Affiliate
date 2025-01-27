@@ -1,5 +1,5 @@
 import { Header } from "./components/Header";
-import { CardListV3 } from "./components/CardListV3";
+import { Card } from "./components/Card";
 
 //importacion manual de imagenes
 import imgLevel1 from '/images/goals/level1.png';
@@ -72,7 +72,7 @@ export function Goals({ domain }: GoalsProps) {
             <div className="max-w-md sm:max-w-4xl lg:max-w-7xl mx-auto   h-[700px] overflow-y-auto">
                 <ul className="space-y-2">
                     {levels.map((levelDate) => (
-                        <CardListV3 userLevel={level} colorText={levelDate.textColor} img={levelDate.img} colorBorder={levelDate.colorBorder} bgColor={levelDate.bgColor} credits={levelDate.credits} level={levelDate.level} range={levelDate.range} />
+                        <Card userLevel={level} colorText={levelDate.textColor} img={levelDate.img} colorBorder={levelDate.colorBorder} bgColor={levelDate.bgColor} credits={levelDate.credits} level={levelDate.level} range={levelDate.range} />
                     ))}
                 </ul>
             </div>

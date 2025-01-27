@@ -1,3 +1,5 @@
+import { level0, level1, level2, level3, level4, level5 } from "../../../../utils/colors";
+
 //funcion que me retorna el texto para el scratch segun el dominio
 export function getTextScratch(domain: string) {
     if (domain === 'PILAR') {
@@ -89,4 +91,84 @@ export function gradientForModal(domain: string): string {
 //funcion que me da el bg opaco y el color para cada dominio
 export function getBackgroundClass(domain: string): string {
     return domain.toUpperCase() === 'SALTA' ? 'bg-white bg-opacity-30' : 'bg-black bg-opacity-30'
+}
+
+
+// Función que devuelve el color del gradiente según el nivel
+export function getGradient(level: number): string {
+    switch (level) {
+        case 0:
+            return 'from-white to-white border border-gray-600/10';
+        case 1:
+            return `from-[#F5C74F] to-[#B02307] border border-gray-600/10`;
+        case 2:
+            return `from-[#FB5F2F] to-[#FF3B88] border border-gray-600/10`;
+        case 3:
+            return `from-[#57D089] to-[#217469] border border-gray-600/10`;
+        case 4:
+            return `from-[#6BA9DF] to-[#1B3284] border border-gray-600/10`;
+        case 5:
+            return `from-[#D64EFA] to-[#4410BE] border border-gray-600/10`;
+        default:
+            return `from-white to-white`;
+    }
+}
+
+
+export function getFirstColor(level: number): string {
+    switch (level) {
+        case 0:
+            return level0.firstColor;
+        case 1:
+            return level1.firstColor;
+        case 2:
+            return level2.firstColor;
+        case 3:
+            return level3.firstColor;
+        case 4:
+            return level4.firstColor;
+        case 5:
+            return level5.firstColor;
+        default:
+            return 'text-black'; // Color por defecto
+    }
+}
+export function getSecondColor(level: number): string {
+    switch (level) {
+        case 0:
+            return level0.secondColor;
+        case 1:
+            return level1.secondColor;
+        case 2:
+            return level2.secondColor;
+        case 3:
+            return level3.secondColor;
+        case 4:
+            return level4.secondColor;
+        case 5:
+            return level5.secondColor;
+        default:
+            return 'text-black'; // Color por defecto
+    }
+}
+
+
+//logica de fechas
+export function getFirstDayInMonth(): string {
+    const today = new Date();
+    const firstDay = new Date(today.getFullYear(), today.getMonth(), 1); // Primer día del mes
+    return formatDate(firstDay);
+}
+
+export function getLastDayInMonth(): string {
+    const today = new Date();
+    const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0); // Último día del mes
+    return formatDate(lastDay);
+}
+
+function formatDate(date: Date): string {
+    const day = String(date.getDate()).padStart(2, '0'); // Asegura 2 dígitos
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Mes (0-indexado)
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
 }

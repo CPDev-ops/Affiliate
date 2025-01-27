@@ -3,10 +3,10 @@ import { AdminApp } from './components/app/admin/AdminApp';
 import { GetIcon } from './components/config/GetIcon';
 import { FormClient } from './components/app/client/Form';
 import { Login } from './components/app/auth/Login';
-import { Home } from './components/app/user/home/Home';
+import { Home } from './components/app/user/balance/Home';
 import { Goals } from './components/app/user/goals/Goals';
 import { HowToGet } from './components/app/client/HowToGet';
-import { Balance } from './components/app/user/Balance/Balance';
+import { Balance } from './components/app/user/details/Details';
 import { useLevel } from './context/LevelContext';
 import { useEffect } from 'react';
 import { Summary } from './components/app/user/summary/Summary';
@@ -52,9 +52,9 @@ function App() {
           <Route path='/client/game/howToGet' element={<GradientWrapper domain={domain}><HowToGetPage domain={domain} /></GradientWrapper>} />
           <Route path='/client/game/alreadyPlayed' element={<GradientWrapper domain={domain}><AlreadyPlayedPage domain={domain} /></GradientWrapper>} />
           <Route path='/client/howToGet' element={<HowToGet domain={domain} />} />
-          <Route path='/user/home' element={<Home domain={domain} />} />
+          <Route path='/user/balance' element={<Home domain={domain} />} />
           <Route path='/user/goals' element={<Goals domain={domain} />} />
-          <Route path='/user/balance' element={<Balance domain={domain} />} />
+          <Route path='/user/details' element={<Balance domain={domain} />} />
           <Route path='/user/summary' element={<Summary domain={domain} />} />
           <Route path='/user/collaborators' element={<Collaborators domain={domain} />} />
         </Routes>

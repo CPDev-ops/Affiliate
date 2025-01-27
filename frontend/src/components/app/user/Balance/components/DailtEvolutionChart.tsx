@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import Chart from 'chart.js/auto'
-import { getGradient } from '../../../../config/getGradient'
+import { getGradient } from '../../../client/game/utils/utils'
 import { useNavigate } from 'react-router-dom'
 import { getDeviceConfig } from '../../../../hook/useDeviceType'
 

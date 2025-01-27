@@ -11,7 +11,7 @@ const LevelContext = createContext<LevelContextType | undefined>(undefined);
 
 // Crear el proveedor del contexto
 export const LevelProvider = ({ children }: { children: ReactNode }) => {
-    const [level, setLevel] = useState<number>(4); // El valor inicial de 'level' es 0
+    const [level, setLevel] = useState<number>(0); // El valor inicial de 'level' es 0
     return (
         <LevelContext.Provider value={{ level, setLevel }}>
             {children}
