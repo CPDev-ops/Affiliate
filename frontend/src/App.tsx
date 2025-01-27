@@ -3,7 +3,7 @@ import { AdminApp } from './components/app/admin/AdminApp';
 import { GetIcon } from './components/config/GetIcon';
 import { FormClient } from './components/app/client/Form';
 import { Login } from './components/app/auth/Login';
-import { Home } from './components/app/user/balance/Home';
+import Home from './components/app/user/balance/Home';
 import { Goals } from './components/app/user/goals/Goals';
 import { HowToGet } from './components/app/client/HowToGet';
 import { Balance } from './components/app/user/details/Details';

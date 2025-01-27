@@ -7,7 +7,7 @@ import { ContainerModules } from "../../../hook/containerModules"
 interface HomeProps {
     domain: string
 }
-export function Home({ domain }: HomeProps) {
+export default function Home({ domain }: HomeProps) {
     const { level } = useLevel(); // Acceder al valor de 'level'
     console.log('forzando build')
     return (
