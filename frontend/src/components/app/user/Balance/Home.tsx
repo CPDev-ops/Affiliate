@@ -7,7 +7,7 @@ import { ContainerModules } from "../../../hook/containerModules"
 interface HomeProps {
     domain: string
 }
-export default function Home({ domain }: HomeProps) {
+export function Home({ domain }: HomeProps) {
     const { level } = useLevel(); // Acceder al valor de 'level'
     console.log('forzando build')
     return (
@@ -20,10 +20,6 @@ export default function Home({ domain }: HomeProps) {
                 {/* CARD DE TESTEO */}
                 <ProgressSteps level={level} currentStep={level} totalSteps={5} />
             </div>
-            {/* CARD DE VALUES IN CHARTJS */}
-            {/*  <div className="my-4 ">
-                <EmojiOrIconChart isDesktop={isDesktop} isMobile={isMobile} isTablet={isTablet} conversionValues={valuesData} level={level} />
-            </div> */}
         </ContainerModules >
     )
 }
