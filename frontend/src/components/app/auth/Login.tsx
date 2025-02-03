@@ -70,7 +70,7 @@ export function Login({ domain }: { domain: string }) {
                             />
                             <button
                                 type="submit"
-                                className={`w-full bg-[#FF0000] hover:bg-red-700   text-white py-3 rounded-full text-sm tracking-widest  gothamBook uppercase transition-colors`}
+                                className={`w-full bg-[#FF0000] hover:bg-red-700    text-white py-3 rounded-full text-sm tracking-widest  gothamBook uppercase transition-colors`}
                             >
                                 Ingresar
                             </button>

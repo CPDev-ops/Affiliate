@@ -43,17 +43,44 @@ export function TemplateMail({ domain }: TemplateMailProps) {
     const [visible, setVisible] = useState<boolean>(true)
     // Expresión regular para validar el formato del correo electrónico
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+    //suggestion para mostrar las opciones de abajo
+    const [suggestions, setSuggestions] = useState<string[]>([])
+    //dominios populares para el input
+    const popularDomains = ['@gmail.com', '@hotmail.com', '@yahoo.com.ar', '@hotmail.com.ar', '@outlook.com', '@live.com.ar', '@icloud.com']
     // Función para manejar el cambio en el campo de correo electrónico
     const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
         setEmail(value);
         setButtonActivated(emailRegex.test(value) && isChecked); // Activar botón si el correo es válido y el checkbox está marcado
+
+        // Detectar si el usuario ha escrito un @
+        const atIndex = value.indexOf("@");
+        if (atIndex !== -1) {
+            const typedDomain = value.slice(atIndex); // Lo que está después del @
+            if (typedDomain.length > 0) {
+                // Filtrar dominios que coincidan con lo tipeado después del @
+                const filteredSuggestions = popularDomains.filter((domain) =>
+                    domain.startsWith(typedDomain) // Filtrar dominios que comienzan con lo tipeado
+                );
+                setSuggestions(filteredSuggestions);
+            }
+        } else {
+            // Si no hay @, no mostrar sugerencias
+            setSuggestions([]);
+        }
     };
+
     // Función para manejar el cambio en el checkbox
     const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setIsChecked(event.target.checked);
         setButtonActivated(emailRegex.test(email) && event.target.checked); // Activar botón si el correo es válido y el checkbox está marcado
+    };
+    // Manejar clic en una sugerencia
+    const handleSuggestionClick = (domain: string) => {
+        const atIndex = email.indexOf("@");
+        const updatedEmail = atIndex !== -1 ? email.slice(0, atIndex) + domain : email + domain;
+        setEmail(updatedEmail);
+        setSuggestions([]);
     };
     //envio de data
     async function sendData() {
@@ -149,6 +176,21 @@ export function TemplateMail({ domain }: TemplateMailProps) {
                 <input type="email"
                     value={email}
                     onChange={handleEmailChange} placeholder="M A I L" className="w-full rounded-full p-2 pl-12 text-black my-2 placeholder:text-gray-400" />
+                {/* Sugerencias */}
+                {/* Lista de sugerencias */}
+                {suggestions.length > 0 && (
+                    <ul className="absolute bg-white text-gray-500 border rounded-lg w-full mt-1 z-10">
+                        {suggestions.map((domain) => (
+                            <li
+                                key={domain}
+                                onClick={() => handleSuggestionClick(domain)}
+                                className="p-2 cursor-pointer hover:bg-gray-100"
+                            >
+                                {email.split("@")[0]}{domain}
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </div>
             <h1 style={{ textShadow: '4px 6px 6px rgba(0, 0, 0, 0.5)' }} className="text-white text-start ml-2 my-4 texto-inclinado">Recordá que si ya recibiste premios en promociones anteriores, no vas a poder reclamar este premio.
             </h1>

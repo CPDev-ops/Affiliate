@@ -17,7 +17,7 @@ export function CollaboratorCard({ name, imageUrl, level, id }: CollaboratorCard
 
 
     return (
-        <div className="max-w-md w-full">
+        <div className="max-w-full w-full">
             <div className={`bg-gradient-to-b ${getGradient(level)} backdrop-blur-sm rounded-xl p-3 flex items-center justify-between`}>
                 <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full overflow-hidden ">
@@ -34,7 +34,7 @@ export function CollaboratorCard({ name, imageUrl, level, id }: CollaboratorCard
                     </div>
                     <span className={` font-medium ${level !== 0 ? 'text-white' : ''}`}>{name}</span>
                 </div>
-                <svg onClick={() => setModal(true)} className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg onClick={() => setModal(true)} className={`w-5 h-5 cursor-pointer ${level !== 0 ? 'text-white' : 'text-black'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path
                         strokeLinecap="round"

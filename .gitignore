@@ -1,0 +1,29 @@
+# Ignorar caché de Python
+__pycache__/
+
+# Ignorar archivos de entorno virtual
+venv/
+env/
+
+# Ignorar archivos de configuración sensibles (si aplican)
+config.py
+default.py
+
+# Ignorar dependencias (si las instalas en una carpeta local)
+requirements.txt
+
+# Ignorar logs y archivos temporales
+*.log
+*.tmp
+
+# Ignorar archivos compilados de Python
+*.pyc
+*.pyo
+*.pyd
+
+# Si necesitas incluir archivos específicos dentro de las carpetas ignoradas
+!controllers/.gitkeep
+!routes/.gitkeep
+!static/.gitkeep
+!templates/.gitkeep
+

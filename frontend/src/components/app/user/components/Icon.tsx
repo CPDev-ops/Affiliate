@@ -5,6 +5,6 @@ export function IconBackHome({ level }: { level: number }) {
     const navigate = useNavigate()
     console.log(level)
     return (
-        <HiOutlineArrowNarrowLeft onClick={() => navigate('/user/balance')} className={`text-[#3E3838]`} size={24} />
+        <HiOutlineArrowNarrowLeft onClick={() => navigate('/user/balance')} className={`text-[#3E3838] cursor-pointer`} size={24} />
     )
 }

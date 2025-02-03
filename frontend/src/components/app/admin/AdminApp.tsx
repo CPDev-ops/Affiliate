@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
-import { FaUsers, FaUserCircle } from 'react-icons/fa'
+import { FaUsers, FaUserCircle, FaGamepad } from 'react-icons/fa'
 
 export function AdminApp() {
     const navigate = useNavigate()
@@ -42,6 +42,20 @@ export function AdminApp() {
                             <FaUserCircle className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-emerald-300" />
                             <span className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
                                 Usuario
+                            </span>
+                            <div className="absolute inset-0 rounded-xl bg-emerald-600/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                        </div>
+                    </motion.button>
+                    <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={() => navigate('/client/game?code=2f3766348f')}
+                        className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 p-[2px]"
+                    >
+                        <div className="relative flex flex-col items-center gap-2 bg-slate-950/50 backdrop-blur-sm rounded-xl p-4 h-full transition-all group-hover:bg-slate-950/30">
+                            <FaGamepad className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-purple-300" />
+                            <span className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
+                                Raspa y Gana
                             </span>
                             <div className="absolute inset-0 rounded-xl bg-emerald-600/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                         </div>

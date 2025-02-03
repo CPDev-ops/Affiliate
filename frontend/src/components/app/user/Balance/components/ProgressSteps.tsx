@@ -13,7 +13,7 @@ export function ProgressSteps({ currentStep = 4, totalSteps = 5, level }: Progre
     return (
         <div>
             <h2 className={`text-black text-base lg:text-lg `}>Mi progreso</h2>
-            <div className={`bg-gradient-to-b ${getGradient(level)} py-2 sm:py-4 lg:pt-12 px-3 mb-4 shadow-2xl sm:h-32 rounded-xl w-full max-w-md sm:max-w-full`}>
+            <div className={`bg-gradient-to-b ${getGradient(level)} py-2 sm:py-4 lg:pt-12 px-3 mb-4 shadow-2xl sm:h-32 rounded-xl w-full max-w-full`}>
                 <div className="min-h-14 flex flex-col  ">
                     <div className="relative mt-auto ">
                         {/* Línea de fondo */}
@@ -51,7 +51,7 @@ export function ProgressSteps({ currentStep = 4, totalSteps = 5, level }: Progre
                                             )}
                                             {/* Punto */}
                                             <div onClick={() => setLevel(stepNumber)}
-                                                className={`w-8 h-8 lg:w-12 lg:h-12 rounded-full flex items-center justify-center z-10 
+                                                className={`w-8 h-8 lg:w-12 lg:h-12 cursor-pointer rounded-full flex items-center justify-center z-10 
                       ${isCurrent
                                                         ? 'bg-[#FF0000] border-2 border-[#FBC609] text-white'
                                                         : isCompleted

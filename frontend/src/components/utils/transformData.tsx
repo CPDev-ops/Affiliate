@@ -211,7 +211,7 @@ export const getBackgroundButtonModal = (level: number): string => {
         case 5:
             return 'bg-[#20045A] hover:bg-[#1B034B] ';
         default:
-            return 'bg-[#00000] hover:bg-[#00000]';
+            return 'bg-[#000000] hover:bg-[#000000]';
     }
 }
 

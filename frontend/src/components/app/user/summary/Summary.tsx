@@ -55,7 +55,7 @@ interface dto {
 
 function Card({ data, level }: CardProps) {
     return (
-        <div className="w-full max-w-md ">
+        <div className="w-full max-w-full ">
             <div className={`rounded-md bg-gradient-to-b ${getGradient(level)} p-2 shadow-lg`}>
                 <div className=" space-y-2">
                     <div>

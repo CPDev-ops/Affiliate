@@ -13,11 +13,11 @@ export function Home({ domain }: HomeProps) {
     return (
         <ContainerModules domain={domain}>
             {/* Header */}
-            <Header userName="Alex Becci" level={level} />
+            <Header userName="Sofitel Cardales" level={level} />
             {/* CARD QUE MUESTRA EL VALOR DE CREDITOS GANADOS */}
             <CardCreditsEarned income={5} level={level} value={350205} />
+            {/* CARD DE PROGRESO */}
             <div className="my-4">
-                {/* CARD DE TESTEO */}
                 <ProgressSteps level={level} currentStep={level} totalSteps={5} />
             </div>
         </ContainerModules >

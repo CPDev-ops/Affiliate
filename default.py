@@ -8,8 +8,8 @@ from flask_session import Session
 from flask_cors import CORS
 from flask_cors import cross_origin
 import pymysql
-from controlador_db import obtener_conexion
-import controlador_db
+from controllers.controlador_db import obtener_conexion
+import controllers.controlador_db as controlador_db
 import xlsxwriter
 import urllib.request as urllib
 import json
@@ -19,10 +19,13 @@ import uuid
 import random
 from decimal import Decimal
 from functools import wraps
+from config import Config
 import re
 import qrcode
 from io import BytesIO
-import envio_mail
+import controllers.envio_mail as envio_mail
+from routes.client_routes import client
+from routes.user_routes import user
 
 def require_params(params):
     def decorator(func):
@@ -41,63 +44,17 @@ def generar_codigo_unico():
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '9%H9Nu9EM*901j9edfghsfghfhxfgh1Ikf'
-app.config['SESSION_TYPE'] = 'filesystem'  # Almacenamiento de la sesión en el sistema de archivos (puedes cambiar esto según tus necesidades)
-# Configuración para establecer el tiempo de vida de las cookies de sesión
-app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=90)  # La cookie de sesión durará 1 día
-app.config['UPLOAD_FOLDER'] = './Archivos PDF/'
-app.config['SESSION_COOKIE_SAMESITE'] = 'None' 
-app.config['SESSION_COOKIE_SECURE'] = True 
+#CONFIG
+app.config.from_object(Config)
+#registramos los blueprint
+app.register_blueprint(client)
+app.register_blueprint(user)
+#CORS
 CORS(app, supports_credentials=True,origins="*")
 Session(app)
 
-@app.route("/")
-def index():
-    return render_template("index.html")
 
-#ruta nueva de terminos y condiciones REACT
-@app.route('/terms')
-def terms():
-    return render_template('index.html')
-
-#ruta nueva para como llegar REACT
-@app.route('/howToGet')
-def howToGet():
-    return render_template('index.html')
-
-#ruta nueva para como llegar REACT
-@app.route('/minorAge')
-def minorAge():
-    return render_template('index.html')
-
-@app.route('/client/game')
-def clientGame():
-    return render_template('index.html')
-
-@app.route('/client/game/howToGet')
-def clientGameHowToGet():
-    return render_template('index.html')
-
-@app.route('/client/game/minorAge')
-def clientGameMinorAge():
-    return render_template('index.html')
-
-@app.route('/client/game/alreadyPlayed')
-def clientGameAlreadyPlayed():
-    return render_template('index.html')
-
-@app.route("/template_mail")
-def template_mail():
-    return render_template("mail.html")
-
-@app.route("/template_terms")
-def template_terms():
-    return render_template("terminos-condiciones.html")
-
-# ruta nueva 
-@app.route('/alreadyPlayed')
-def already_played():
-    return render_template('index.html')
+#funciones apartes
 
 # Función para insertar una acción
 @app.route("/insertar_accion", methods=["POST"])
