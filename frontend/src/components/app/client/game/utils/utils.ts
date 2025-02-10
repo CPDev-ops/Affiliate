@@ -98,17 +98,17 @@ export function getBackgroundClass(domain: string): string {
 export function getGradient(level: number): string {
     switch (level) {
         case 0:
-            return 'from-white to-white border border-gray-600/10';
+            return 'from-white to-white ';
         case 1:
-            return `from-[#F5C74F] to-[#B02307] border border-gray-600/10`;
+            return `from-[#F5C74F] to-[#B02307] `;
         case 2:
-            return `from-[#FB5F2F] to-[#FF3B88] border border-gray-600/10`;
+            return `from-[#FB5F2F] to-[#FF3B88] `;
         case 3:
-            return `from-[#57D089] to-[#217469] border border-gray-600/10`;
+            return `from-[#57D089] to-[#217469] `;
         case 4:
-            return `from-[#6BA9DF] to-[#1B3284] border border-gray-600/10`;
+            return `from-[#6BA9DF] to-[#1B3284] `;
         case 5:
-            return `from-[#D64EFA] to-[#4410BE] border border-gray-600/10`;
+            return `from-[#D64EFA] to-[#4410BE] `;
         default:
             return `from-white to-white`;
     }

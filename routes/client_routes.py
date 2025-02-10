@@ -2,6 +2,7 @@ from flask import Blueprint,render_template
 
 client= Blueprint('client',__name__)
 
+
 #armando las rutas habilitadas para 
 @client.route("/")
 def index():

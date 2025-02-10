@@ -3,11 +3,9 @@ import { CardList } from "./components/CardList";
 import { useLevel } from "../../../../context/LevelContext";
 import { IconBackHome } from "../components/Icon";
 import { ContainerModules } from "../../../hook/containerModules";
+import { ComponentProp } from "../../../../types/TypePropsComponents";
 
-interface BalanceProps {
-    domain: string
-}
-export function Balance({ domain }: BalanceProps) {
+export function Balance({ domain, type }: ComponentProp) {
     const { level } = useLevel(); // Acceder al valor de 'level'
     // Datos de ejemplo
     const visits = [
@@ -56,7 +54,7 @@ export function Balance({ domain }: BalanceProps) {
         }))
     ];
     return (
-        <ContainerModules domain={domain}>
+        <ContainerModules type={type} domain={domain}>
             {/* HEADER */}
             <IconBackHome level={level} />
             <Header level={level} visits={302} />

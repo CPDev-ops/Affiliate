@@ -26,6 +26,8 @@ from io import BytesIO
 import controllers.envio_mail as envio_mail
 from routes.client_routes import client
 from routes.user_routes import user
+from routes.user_routes import admin
+from routes.user_routes import auth
 
 def require_params(params):
     def decorator(func):
@@ -48,7 +50,9 @@ app = Flask(__name__)
 app.config.from_object(Config)
 #registramos los blueprint
 app.register_blueprint(client)
+app.register_blueprint(auth)
 app.register_blueprint(user)
+app.register_blueprint(admin)
 #CORS
 CORS(app, supports_credentials=True,origins="*")
 Session(app)

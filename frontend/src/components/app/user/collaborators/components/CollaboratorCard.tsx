@@ -127,7 +127,7 @@ function TemplateInputs({ level, date, dni, mail, phone, close }: TemplateInputs
 export const getBorderInput = (level: number): string => {
     switch (level) {
         case 0:
-            return 'border-[#D01111]';
+            return 'border-[#540864]';
         case 1:
             return 'border-[#ECB246]';
         case 2:
@@ -146,7 +146,7 @@ export const getBorderInput = (level: number): string => {
 export const getBorderByLevel = (level: number): string => {
     switch (level) {
         case 0:
-            return 'border-[#D01111]';
+            return 'border-[#540864]';
         case 1:
             return 'border-[#FF0000]';
         case 2:

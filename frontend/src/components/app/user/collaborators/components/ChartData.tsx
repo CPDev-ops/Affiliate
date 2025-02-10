@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, PointElement, CategoryScale, LinearScale, Title, Tooltip } from 'chart.js';
-import { backgroundByIndex, generateWeekLabels, getColorByChartText, getColorLinesChartBackground, getCurrentMonth } from '../../../../utils/transformData';
+import { backgroundByIndex, generateWeekLabels, getColorByChartText, getColorLinesChartBackground, getCurrentMonth, getTextByLevel } from '../../../../utils/transformData';
 import { getDeviceConfig } from '../../../../hook/useDeviceType';
 import { getGradient } from '../../../client/game/utils/utils';
 
@@ -98,28 +98,26 @@ export const AllCollaboratorsChart = ({ level, names, conversionValuesList, isDe
     return (
         <div className=''>
             {/* Mostrar los nombres en la parte superior */}
-            <div className="flex justify-start items-center  mb-4">
-                <div>
-                    <h1 className='text-start'>Comparativas de ingresos por período</h1>
-                    <div className='flex justify-between   items-center gap-2'>
-                        {names.map((name, index) => (
-                            <div key={index} className="flex bg-[#3E3838] p-2 rounded-full items-center space-x-2">
-                                {/* Círculo pequeño */}
-                                <div
+            <div className="flex-col justify-center items-center  mb-4">
+                <h1 className={`text-start ${getTextByLevel(level)}`}>Comparativas de ingresos por período</h1>
+                <div className='grid grid-cols-2 lg:grid-cols-3 w-full gap-4 justify-center mx-auto   items-center '>
+                    {names.map((name, index) => (
+                        <div key={index} className="flex bg-[#3E3838] p-2 rounded-full items-center space-x-2">
+                            {/* Círculo pequeño */}
+                            <div
 
-                                    className={`w-4 h-4 rounded-full ${backgroundByIndex(index)}`}
-                                ></div>
-                                {/* Nombre del usuario */}
-                                <span className='text-xs'
-                                    style={{
-                                        color: `white`, // Colores dinámicos para coincidir con las líneas
-                                    }}
-                                >
-                                    {name}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
+                                className={`w-4 h-4 rounded-full ${backgroundByIndex(index)}`}
+                            ></div>
+                            {/* Nombre del usuario */}
+                            <span className='text-xs'
+                                style={{
+                                    color: `white`, // Colores dinámicos para coincidir con las líneas
+                                }}
+                            >
+                                {name}
+                            </span>
+                        </div>
+                    ))}
                 </div>
             </div>
             <div className={`w-full bg-gradient-to-b ${getGradient(level)} shadow-2xl rounded-xl p-3 `}>

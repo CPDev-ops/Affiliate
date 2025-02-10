@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
-import { FaUsers, FaUserCircle, FaGamepad } from 'react-icons/fa'
+import { FaUserCircle } from 'react-icons/fa'
+import { RiAdminFill } from "react-icons/ri"
+/* import { LoaderPage } from "../../hook/LoaderPage" */
+
 
 export function AdminApp() {
     const navigate = useNavigate()
@@ -20,21 +23,6 @@ export function AdminApp() {
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={() => navigate('/client')}
-                        className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 p-[2px]"
-                    >
-                        <div className="relative flex flex-col items-center gap-2 bg-slate-950/50 backdrop-blur-sm rounded-xl p-4 h-full transition-all group-hover:bg-slate-950/30">
-                            <FaUsers className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-blue-300" />
-                            <span className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
-                                Cliente
-                            </span>
-                            <div className="absolute inset-0 rounded-xl bg-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                        </div>
-                    </motion.button>
-
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
                         onClick={() => navigate('/login')}
                         className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 p-[2px]"
                     >
@@ -49,13 +37,13 @@ export function AdminApp() {
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        onClick={() => navigate('/client/game?code=2f3766348f')}
-                        className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 p-[2px]"
+                        onClick={() => navigate('/admin/home')}
+                        className="group relative overflow-hidden rounded-xl bg-gradient-to-br from-yellow-500 to-yellow-600 p-[2px]"
                     >
                         <div className="relative flex flex-col items-center gap-2 bg-slate-950/50 backdrop-blur-sm rounded-xl p-4 h-full transition-all group-hover:bg-slate-950/30">
-                            <FaGamepad className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-purple-300" />
+                            <RiAdminFill className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-yellow-300" />
                             <span className="text-lg sm:text-xl md:text-2xl font-semibold text-white">
-                                Raspa y Gana
+                                Admin
                             </span>
                             <div className="absolute inset-0 rounded-xl bg-emerald-600/20 opacity-0 group-hover:opacity-100 transition-opacity" />
                         </div>
@@ -63,6 +51,7 @@ export function AdminApp() {
                 </div>
 
             </motion.div>
+            {/* <LoaderPage visible={true} /> */}
         </main>
     )
 }

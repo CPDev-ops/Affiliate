@@ -118,7 +118,7 @@ afiliate.nuevocasinoalberdi.com.ar
     */
     /* const hostnamePROD = window.location.hostname; *///obtenemos el hostname 
 
-    const hostname = 'afiliate.bingopilar.com.ar ';//obtenemos el hostname 
+    const hostname = 'afiliate.nuevocasinoalberdi.com.ar ';//obtenemos el hostname 
 
     //extraemos el nombre del dominio principal 
     const matches = hostname.match(/afiliate\.(\w+)\.(com\.ar)/);

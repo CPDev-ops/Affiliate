@@ -10,12 +10,11 @@ import imgLevel5 from '/images/goals/level5.png';
 import { useLevel } from "../../../../context/LevelContext";
 import { IconBackHome } from "../components/Icon";
 import { ContainerModules } from "../../../hook/containerModules";
+import { ComponentProp } from "../../../../types/TypePropsComponents";
 
 
-interface GoalsProps {
-    domain: string
-}
-export function Goals({ domain }: GoalsProps) {
+export function Goals({ domain, type }: ComponentProp) {
+    console.log(type)
     const { level } = useLevel(); // Acceder al valor de 'level'
     const levels = [
         {
@@ -66,7 +65,7 @@ export function Goals({ domain }: GoalsProps) {
     ];
 
     return (
-        <ContainerModules domain={domain}>
+        <ContainerModules type={type} domain={domain}>
             <IconBackHome level={level} />
             <Header level={level} />
             <div className="max-w-md sm:max-w-4xl lg:max-w-7xl mx-auto   h-[700px] overflow-y-auto">

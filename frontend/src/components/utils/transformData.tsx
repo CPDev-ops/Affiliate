@@ -46,7 +46,7 @@ export const generateWeekLabels = (year: number, month: number): string[] => {
 export const getTextByLevel = (level: number): string => {
     switch (level) {
         case 0:
-            return 'text-[#CD0101]'
+            return 'text-[#45087B]'
         case 1:
             return 'text-[#B02307]';
         case 2:
@@ -62,6 +62,64 @@ export const getTextByLevel = (level: number): string => {
     }
 };
 
+export const getTextModalFormByLevel = (level: number): string => {
+    switch (level) {
+        case 0:
+            return 'text-[#540864]'
+        case 1:
+            return 'text-[#B02307]';
+        case 2:
+            return 'text-[#7A032E]';
+        case 3:
+            return 'text-[#02352B]';
+        case 4:
+            return 'text-[#031142]';
+        case 5:
+            return 'text-[#20045A]';
+        default:
+            return 'text-black'; // Color por defecto
+    }
+}
+
+export const getBackgroundButtonModalForm = (level: number): string => {
+    switch (level) {
+        case 0:
+            return 'bg-[#540864]'
+        case 1:
+            return 'bg-[#B02307]';
+        case 2:
+            return 'bg-[#7A032E]';
+        case 3:
+            return 'bg-[#02352B]';
+        case 4:
+            return 'bg-[#031142]';
+        case 5:
+            return 'bg-[#20045A]';
+        default:
+            return 'bg-black'; // Color por defecto
+    }
+}
+
+export const getBorderByLevel = (level: number): string => {
+    switch (level) {
+        case 0:
+            return 'border-[#45087B]'
+        case 1:
+            return 'border-[#B02307]';
+        case 2:
+            return 'border-[#7A032E]';
+        case 3:
+            return 'border-[#02352B]';
+        case 4:
+            return 'border-[#031142]';
+        case 5:
+            return 'border-[#20045A]';
+        default:
+            return 'border-black'; // Color por defecto
+    }
+}
+
+//bacgrkound
 export const getColorIcon = (level: number): string => {
     switch (level) {
         case 0:
@@ -180,7 +238,7 @@ export const getColorLineMain = (level: number): string => {
 export const getBackgroundButton = (level: number): string => {
     switch (level) {
         case 0:
-            return 'bg-[#D01111] hover:bg-[#B02307] ';
+            return 'bg-[#540864] hover:bg-[#4A0758] ';
         case 1:
             return 'bg-[#B02307] hover:bg-[#A6240A] ';
         case 2:
@@ -199,7 +257,7 @@ export const getBackgroundButton = (level: number): string => {
 export const getBackgroundButtonModal = (level: number): string => {
     switch (level) {
         case 0:
-            return 'bg-[#D01111] hover:bg-[#B02307] ';
+            return 'bg-[#540864] hover:bg-[#540864] ';
         case 1:
             return 'bg-[#B02307] hover:bg-[#7A032E] ';
         case 2:

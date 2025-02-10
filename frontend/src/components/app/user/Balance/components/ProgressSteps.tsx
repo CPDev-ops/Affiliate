@@ -1,19 +1,19 @@
 import { useLevel } from "../../../../../context/LevelContext";
 import { getGradient } from "../../../client/game/utils/utils";
 
-interface ProgressStepsProps {
+interface LevelStepsProps {
     currentStep: number;
     totalSteps?: number;
     level: number
 }
 
 
-export function ProgressSteps({ currentStep = 4, totalSteps = 5, level }: ProgressStepsProps) {
+export function LevelSteps({ currentStep = 4, totalSteps = 5, level }: LevelStepsProps) {
     const { setLevel } = useLevel()
     return (
         <div>
-            <h2 className={`text-black text-base lg:text-lg `}>Mi progreso</h2>
-            <div className={`bg-gradient-to-b ${getGradient(level)} py-2 sm:py-4 lg:pt-12 px-3 mb-4 shadow-2xl sm:h-32 rounded-xl w-full max-w-full`}>
+            <h2 className={`text-black text-base lg:text-lg `}>Mis Niveles</h2>
+            <div className={`bg-gradient-to-b ${getGradient(level)} py-2 sm:py-4 lg:pt-6 px-3 mb-4 shadow-2xl sm:h-32 rounded-xl w-full max-w-full`}>
                 <div className="min-h-14 flex flex-col  ">
                     <div className="relative mt-auto ">
                         {/* Línea de fondo */}
@@ -51,15 +51,15 @@ export function ProgressSteps({ currentStep = 4, totalSteps = 5, level }: Progre
                                             )}
                                             {/* Punto */}
                                             <div onClick={() => setLevel(stepNumber)}
-                                                className={`w-8 h-8 lg:w-12 lg:h-12 cursor-pointer rounded-full flex items-center justify-center z-10 
+                                                className={`w-8 h-8 lg:w-8 lg:h-8 cursor-pointer rounded-full flex items-center justify-center z-10 
                       ${isCurrent
                                                         ? 'bg-[#FF0000] border-2 border-[#FBC609] text-white'
                                                         : isCompleted
                                                             ? 'bg-[#FF00FF] border-2 border-[#FFFF00] text-white'
-                                                            : 'bg-[#000000] text-gray-400 border-2 border-[#D9D9D9]'
+                                                            : 'bg-[#000000] text-[#6C6C6C] border-2 border-[#6C6C6C]'
                                                     }`}
                                             >
-                                                <span className="text-sm lg:text-2xl font-bold">
+                                                <span className="text-sm lg:text-xl font-bold">
                                                     {stepNumber}
                                                 </span>
                                             </div>
