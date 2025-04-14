@@ -1,0 +1,40 @@
+select:focus {
+    outline: none;
+    border-color: #4CAF50; /* Color de borde cuando el select está enfocado */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3); /* Sombra alrededor para indicar el enfoque */
+}
+
+select:hover {
+    background-color: #555555; /* Cambiar el color de fondo al pasar el cursor */
+}
+
+select:active {
+    background-color: #444444; /* Cambiar el color de fondo al hacer clic */
+}
+
+select {
+    color: #E0E0E0; /* Color del texto dentro del select */
+}
+
+select:focus {
+    color: #ffffff; /* Color del texto cuando el select está enfocado */
+}
+
+select {
+    font-size: 1rem; /* Tamaño de la fuente */
+    padding: 0.75rem; /* Asegúrate de que el padding sea adecuado */
+}
+
+select option {
+    background-color: #333333; /* Fondo del option */
+    color: #E0E0E0; /* Color del texto en las opciones */
+}
+
+select option:hover {
+    background-color: #555555; /* Fondo al pasar el cursor por encima de las opciones */
+}
+
+select option:checked {
+    background-color: #4CAF50; /* Fondo de la opción seleccionada */
+    color: white; /* Color del texto de la opción seleccionada */
+}

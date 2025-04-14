@@ -4,10 +4,15 @@ __pycache__/
 # Ignorar archivos de entorno virtual
 venv/
 env/
+backend/app
+backend/flask_session
+
+.env
 
 # Ignorar archivos de configuración sensibles (si aplican)
 config.py
 default.py
+credentials_module.json
 
 # Ignorar dependencias (si las instalas en una carpeta local)
 requirements.txt

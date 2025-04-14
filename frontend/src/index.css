@@ -3,6 +3,50 @@
 @tailwind utilities;
 
 
+/* Personalizar la barra de desplazamiento para navegadores basados en WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 10px;
+    /* Ancho de la barra vertical */
+    height: 10px;
+    /* Alto de la barra horizontal */
+}
+
+/* Estilo del fondo de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+    background: #1e1e2e;
+    /* Color del fondo de la barra */
+    border-radius: 5px;
+    /* Bordes redondeados */
+}
+
+/* Estilo del "thumb" (la parte móvil de la barra) */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #262141, #45087B);
+    /* Degradado violeta */
+    border-radius: 5px;
+    /* Bordes redondeados */
+}
+
+/* Cambiar el color cuando se pasa el mouse */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #241f47, #5B0E94);
+    /* Un tono más claro al hacer hover */
+}
+
+/* Para Firefox (soporta `scrollbar-color`) */
+* {
+    scrollbar-width: thin;
+    /* Hace que la barra sea delgada */
+    scrollbar-color: #504a7a #1e1e2e;
+    /* Color del thumb y del track */
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
 /* Estilos específicos para cada dominio */
 .domain-pilar {
     /* background: radial-gradient(circle, #FF0025, #45001C); */
